@@ -15,6 +15,7 @@ window.taigaConfig = {
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
+    "importers": [],
     "contribPlugins": [],
     "supportUrl": "https://tree.taiga.io/support"
 }
@@ -40,7 +41,7 @@ loadPlugin = (pluginPath) ->
             if plugin.css
                 loadStylesheet(plugin.css)
 
-            # dont wait for css
+            #dont' wait for css
             if plugin.js
                 ljs.load(plugin.js, resolve)
             else

@@ -17,6 +17,7 @@
     "contribPlugins": [],
     "tribeHost": null,
     "gravatar": true,
+    "importers": [],
     "supportUrl": "https://tree.taiga.io/support/ssssss",
     "logoutUrl": "http://google.sk"
 }

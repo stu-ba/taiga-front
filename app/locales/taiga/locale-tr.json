@@ -41,7 +41,7 @@
         "LOGOUT": "Çıkış",
         "EXTERNAL_USER": "bir dış kullanıcı",
         "GENERIC_ERROR": "Honki ponkilerimizden biri derki; {{error}}.",
-        "IOCAINE_TEXT": "Bir görev size ağır geldi ve bunaldınız mı? Diğerlerinin bu durumdan haberi olması için bir görevi düzenlerken baldıran zehrinin üzerine tıklayın.  Nasıl ki zaman zaman ekstra meydan okumalarla bir işte gittikce iyi olmanız mümkünse, zaman içerisinde küçük dozlar alarak bu ölümcül zehre de bağışıklık kazanabilmek mümkün!",
+        "IOCAINE_TEXT": "This member is feeling a bit overwhelmed by this task. Will become immune to the iocaine poison over time with your help. For now, may need a hug.",
         "CLIENT_REQUIREMENT": "Müşteri gereksinimi, daha önceden belli olmayan ama projeye dahil olması gereken bir gereksinimdir",
         "TEAM_REQUIREMENT": "Takım gereksinimi, müsteriyi ilgilendirmeyen, ama projede yer alması zorunlu olan bir gereksinimdir.",
         "OWNER": "Project Owner",
@@ -202,9 +202,9 @@
             "CONFIRM_DELETE": "Bu özel alandaki tüm bilgiler silinecek.\nDevam etmek istediğinize emin misiniz?"
         },
         "FILTERS": {
-            "TITLE": "Filtreler",
             "INPUT_PLACEHOLDER": "Konu yada referans",
             "TITLE_ACTION_FILTER_BUTTON": "ara",
+            "TITLE": "Filtreler",
             "INPUT_SEARCH_PLACEHOLDER": "Konu ya da ref",
             "TITLE_ACTION_SEARCH": "Ara",
             "ACTION_SAVE_CUSTOM_FILTER": "özel filtre olarak kaydet",
@@ -227,34 +227,9 @@
             }
         },
         "WYSIWYG": {
-            "H1_BUTTON": "İlk Düzey Başlık",
-            "H1_SAMPLE_TEXT": "Başlığınız...",
-            "H2_BUTTON": "İkinci Düzey Başlık",
-            "H2_SAMPLE_TEXT": "Başlığınız...",
-            "H3_BUTTON": "Üçüncü Düzey Başlık",
-            "H3_SAMPLE_TEXT": "Başlığınız...",
-            "BOLD_BUTTON": "Kalın",
-            "BOLD_BUTTON_SAMPLE_TEXT": "Yazınız buraya...",
-            "ITALIC_BUTTON": "Eğik",
-            "ITALIC_SAMPLE_TEXT": "Yazınız buraya...",
-            "STRIKE_BUTTON": "Üstünü çiz",
-            "STRIKE_SAMPLE_TEXT": "Yazınız buraya..",
-            "BULLETED_LIST_BUTTON": "Maddeler",
-            "BULLETED_LIST_SAMPLE_TEXT": "Yazınız buraya...",
-            "NUMERIC_LIST_BUTTON": "Sayısal Liste",
-            "NUMERIC_LIST_SAMPLE_TEXT": "Yazınız buraya..",
-            "PICTURE_BUTTON": "Resim",
-            "PICTURE_SAMPLE_TEXT": "Resminize alternatif yazıyı buraya...",
-            "LINK_BUTTON": "Bağlantı",
-            "LINK_SAMPLE_TEXT": "Bağlantınız...",
-            "QUOTE_BLOCK_BUTTON": "Alıntı Bloku",
-            "QUOTE_BLOCK_SAMPLE_TEXT": "Metni buraya yazın...",
-            "CODE_BLOCK_BUTTON": "Kod Bloğu",
-            "CODE_BLOCK_SAMPLE_TEXT": "Yazınız buraya..",
-            "PREVIEW_BUTTON": "Ön izleme",
-            "EDIT_BUTTON": "Düzenle",
-            "ATTACH_FILE_HELP": "Attach files by dragging & dropping on the textarea above.",
-            "ATTACH_FILE_HELP_SAVE_FIRST": "Save first before if you want to attach files by dragging & dropping on the textarea above.",
+            "OUTDATED": "Another person has made changes while you were editing. Check the new version on the activiy tab before you save your changes.",
+            "ATTACH_FILE_HELP": "Attach files by dragging & dropping on the text area above.",
+            "ATTACH_FILE_HELP_SAVE_FIRST": "Save first before if you want to attach files by dragging & dropping on the text area above.",
             "MARKDOWN_HELP": "Markdown yazım kılavuzu"
         },
         "PERMISIONS_CATEGORIES": {
@@ -543,6 +518,7 @@
             "RECRUITING": "Bu proje insan arıyor mu?",
             "RECRUITING_MESSAGE": "Ne aramıştınız?",
             "RECRUITING_PLACEHOLDER": "Aradığınız özellikleri yazın",
+            "FEEDBACK": "Receive feedback from Taiga users?",
             "PUBLIC_PROJECT": "Açık Proje",
             "PRIVATE_PROJECT": "Gizli proje",
             "PRIVATE_OR_PUBLIC": "Açık ve özel projeler arasındaki fark nedir?",
@@ -595,6 +571,7 @@
             "ISSUE_DESCRIPTION": "Sorunlar için özel alanlar",
             "ISSUE_ADD": "Sorunlara yeni bir özel alan ekle",
             "FIELD_TYPE_TEXT": "Metin",
+            "FIELD_TYPE_RICHTEXT": "Rich text",
             "FIELD_TYPE_MULTI": "Çoklu-satır",
             "FIELD_TYPE_DATE": "Tarih",
             "FIELD_TYPE_URL": "Url"
@@ -896,10 +873,8 @@
             "SECTION_TITLE": "Projeleriniz",
             "PLACEHOLDER_SEARCH": "Aranan konum...",
             "ACTION_CREATE_PROJECT": "Proje Oluştur",
-            "ACTION_IMPORT_PROJECT": "Projeyi İçe Aktar",
             "MANAGE_PROJECTS": "Projeleri yönet",
             "TITLE_CREATE_PROJECT": "Proje oluştur",
-            "TITLE_IMPORT_PROJECT": "Projeyi İçe Aktar",
             "TITLE_PRVIOUS_PROJECT": "Önceki projeleri göster",
             "TITLE_NEXT_PROJECT": "Sonraki projeleri göster",
             "HELP_TITLE": "Taiga Destek Sayfası",
@@ -925,10 +900,77 @@
             "DISCOVER": "Keşfet",
             "ACTION_REORDER": "Yeniden sıralamak için sürükleyin ve bırakın"
         },
+        "LIKE_BUTTON": {
+            "LIKE": "Beğen",
+            "LIKED": "Beğendi",
+            "UNLIKE": "Beğenme",
+            "BUTTON_TITLE": "Bu projeyi beğen ya da beğenme",
+            "COUNTER_TITLE": "{total, plural, one{bir meraklı} other{# meraklı}}"
+        },
+        "WATCH_BUTTON": {
+            "BUTTON_TITLE": "Bu projeyi izle ve bildirim politikasını ayarla",
+            "WATCH": "İzle",
+            "WATCHING": "İzliyor",
+            "COUNTER_TITLE": "{total, plural, one{bir takipçi} other{# takipçi}}",
+            "OPTIONS": {
+                "NOTIFY_ALL": "Bütün bildirimleri al",
+                "NOTIFY_ALL_TITLE": "Bu proje için tüm bildirimleri al",
+                "NOTIFY_INVOLVED": "Sadece ilgililer",
+                "NOTIFY_INVOLVED_TITLE": "Sadece ilgilendiğiniz bildirimleri alın",
+                "UNWATCH": "İzleme",
+                "UNWATCH_TITLE": "Bu projeyi izleme"
+            }
+        },
+        "CONTACT_BUTTON": {
+            "CONTACT_TITLE": "Contact the project team",
+            "CONTACT_BUTTON": "Contact the project"
+        },
+        "CREATE": {
+            "TITLE": "Proje Oluştur",
+            "FRESH": "Taze ve temiz. Heycan verici!",
+            "CHOOSE_TEMPLATE": "Which template fits your project better?",
+            "TEMPLATE_SCRUM": "Scrum",
+            "TEMPLATE_SCRUM_DESC": "Prioritize and solve your tasks in short time cycles.",
+            "TEMPLATE_SCRUM_LONGDESC": "Scrum is an iterative and incremental agile software development methodology for managing product development.\nThe product backlog is what will ultimately be delivered, ordered into the sequence in which it should be delivered. Product Backlogs are broken into manageable, executable chunks named sprints. Every certain amount of time the team initiates a new sprint and commits to deliver a certain number of user stories from the backlog, in accordance with their skills, abilities and resources. The project advances as the backlog becomes depleted.",
+            "TEMPLATE_KANBAN": "Kanban",
+            "TEMPLATE_KANBAN_DESC": "Keep a constant workflow on independent tasks",
+            "TEMPLATE_KANBAN_LONGDESC": "The Kanban methodology is used to divide project development (any sort of project) into stages.\nA kanban card is like an index card or post-it note that details every task (or user story) in a project that needs to be completed. The Kanban board is used to move each card from one state of completion to the next and in so doing, helps track progress.",
+            "DUPLICATE": "Duplicate project",
+            "DUPLICATE_DESC": "Start clean and keep your configuration",
+            "IMPORT": "Projeyi İçe Aktar",
+            "IMPORT_DESC": "Import your project from multiple platforms into Taiga",
+            "INVITE": "Invite to the project",
+            "SOLO_PROJECT": "You'll be alone in this project",
+            "INVITE_LATER": "(You'll be able to invite more members later)",
+            "BACK": "Arka",
+            "MAX_PRIVATE_PROJECTS": "Unfortunately, You've reached the maximum number of private projects.\nIf you would like to increase the current limit please contact the administrator.",
+            "MAX_PUBLIC_PROJECTS": "Unfortunately, You've reached the maximum number of public projects.\nIf you would like to increase the current limit please contact the administrator.",
+            "PUBLIC_PROJECT": "Public Project",
+            "PRIVATE_PROJECT": "Private Project",
+            "MAX_MEMBERS": "Unfortunately, your current plan allows for a maximum of {{max_memberships}} members per project.\n Unselect some members or contact the administrator."
+        },
+        "COMMON": {
+            "DETAILS": "New project details",
+            "PROJECT_TITLE": "Project Name",
+            "PROJECT_DESCRIPTION": "Project Description"
+        },
+        "DUPLICATE": {
+            "TITLE": "Duplicate Project",
+            "DESCRIPTION": "Start clean and keep your configuration",
+            "SELECT_PLACEHOLDER": "Choose an existing project to duplicate",
+            "DETAILS": "New project details",
+            "CREATE_PROJECT_TEXT": "Taze ve temiz. Heycan verici!",
+            "CHOOSE_TEMPLATE_TITLE": "More info about project templates",
+            "CHOOSE_TEMPLATE_INFO": "More info",
+            "PROJECT_DETAILS": "Project Details",
+            "PUBLIC_PROJECT": "Public Project",
+            "PRIVATE_PROJECT": "Private Project",
+            "CREATE_PROJECT": "Proje oluştur",
+            "CHANGE_PLANS": "change plans"
+        },
         "IMPORT": {
-            "TITLE": "Proje İçe Aktarılıyor",
-            "UPLOADING_FILE": "Döküm dosyanız karşıya yükleniyor",
-            "DESCRIPTION": "Bu işlem biraz sürecek, lütfen pencereyi kapatmayın.",
+            "TITLE": "Import Project",
+            "DESCRIPTION": "Import your project from multiple platforms into Taiga",
             "ASYNC_IN_PROGRESS_TITLE": "Bizim honki ponkiler projenizi içeriye aktarıyor",
             "ASYNC_IN_PROGRESS_MESSAGE": "Bu işlem bir kaç dakika sürecek <br/> Hazır olduğunda bir e-posta göndereceğiz",
             "UPLOAD_IN_PROGRESS_MESSAGE": "{{totalSize}} in {{uploadedSize}} kadarı karşıya yüklendi",
@@ -937,8 +979,32 @@
             "ERROR_MESSAGE": "Honki ponkilerimiz döküm dosyanızı içeri aktarırken birkaç problem yaşadı: {{error_message}}",
             "ERROR_MAX_SIZE_EXCEEDED": "({{fileSize}}) boyutundaki '{{fileName}}' dosya honki ponkilerimiz için oldukça ağır geldi, ({{maxFileSize}}) boyutundan daha küçük bir şeylerle deneyin",
             "SYNC_SUCCESS": "Projeniz başarıyla içe aktarıldı",
+            "IMPORT": "Import",
+            "ARCHIVED": "Arşivlenmiş",
+            "ARCHIVED_DESCRIPTION": "You have archived projects, Do you want to import your archived projects?",
+            "WHO_IS": "Their tasks will be assigned to ...",
+            "WRITE_EMAIL": "Or if you want, write the email that their use in Taiga",
+            "SEARCH_CONTACT": "Or if you want, search in your contacts",
+            "WRITE_EMAIL_LABEL": "Write the email that their use in Taiga",
+            "EMAIL_NOT_FOUND": "We did not find any users with that email",
+            "ACCEEDE": "Acceede",
+            "PROJECT_MEMBERS": "Project Members",
+            "PROCESS_DESCRIPTION": "Tell us who from Taiga you want to assign the tasks of {{platform}}",
+            "MATCH": "Is <strong>{{user_external}}</strong> the same person as <strong>{{user_internal}}</strong>?",
+            "CHOOSE": "Select user",
+            "LINKS": "Links with {{platform}}",
+            "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original {{platform}} card?",
+            "WARNING_MAIL_USER": "Note that if the user does not have a Taiga account we will not be able to assign the tasks to him.",
+            "ASSIGN": "Ata",
+            "PROJECT_SELECTOR": {
+                "NO_RESULTS": "It looks like nothing was found with your search criteria",
+                "ACTION_SEARCH": "search",
+                "ACTION_BACK": "Back"
+            },
             "PROJECT_RESTRICTIONS": {
-                "PROJECT_MEMBERS_DESC": "The project you are trying to import has {{members}} members, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per project. If you would like to increase that limit please contact the administrator.",
+                "PROJECT_MEMBERS_DESC_PRIVATE": "The project you are trying to import has {{members}} members including you, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per private project. If you would like to increase that limit please contact the administrator.",
+                "PROJECT_MEMBERS_DESC_PUBLIC": "The project you are trying to import has {{members}} members including you, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per public project. If you would like to increase that limit please contact the administrator.",
+                "ACCOUNT_ALLOW_MEMBERS": "Your account only allows {{members}} members",
                 "PRIVATE_PROJECTS_SPACE": {
                     "TITLE": "Unfortunately, your current plan does not allow for additional private projects",
                     "DESC": "The project you are trying to import is private. Unfortunately, your current plan does not allow for additional private projects."
@@ -961,27 +1027,65 @@
                     "TITLE": "Unfortunately your current plan doesn't allow additional public projects or an increase of more than {{max_memberships}} members per public project",
                     "DESC": "The project that you are trying to import is public and has more than {{members}} members."
                 }
-            }
-        },
-        "LIKE_BUTTON": {
-            "LIKE": "Beğen",
-            "LIKED": "Beğendi",
-            "UNLIKE": "Beğenme",
-            "BUTTON_TITLE": "Bu projeyi beğen ya da beğenme",
-            "COUNTER_TITLE": "{total, plural, one{bir meraklı} other{# meraklı}}"
-        },
-        "WATCH_BUTTON": {
-            "BUTTON_TITLE": "Bu projeyi izle ve bildirim politikasını ayarla",
-            "WATCH": "İzle",
-            "WATCHING": "İzliyor",
-            "COUNTER_TITLE": "{total, plural, one{bir takipçi} other{# takipçi}}",
-            "OPTIONS": {
-                "NOTIFY_ALL": "Bütün bildirimleri al",
-                "NOTIFY_ALL_TITLE": "Bu proje için tüm bildirimleri al",
-                "NOTIFY_INVOLVED": "Sadece ilgililer",
-                "NOTIFY_INVOLVED_TITLE": "Sadece ilgilendiğiniz bildirimleri alın",
-                "UNWATCH": "İzleme",
-                "UNWATCH_TITLE": "Bu projeyi izleme"
+            },
+            "IN_PROGRESS": {
+                "TITLE": "Proje İçe Aktarılıyor",
+                "DESCRIPTION": "Bu işlem biraz sürecek, lütfen pencereyi kapatmayın."
+            },
+            "WARNING": {
+                "TITLE": "Some taks will be unassigned",
+                "DESCRIPTION": "There are still unidentified people. The cards assigned to these people will remain unassigned. Check all the contacts to not lose that information.",
+                "CHECK": "Check contacts"
+            },
+            "TAIGA": {
+                "SELECTOR": "Import your Taiga project"
+            },
+            "TRELLO": {
+                "TITLE": "Trello",
+                "SELECTOR": "Import your Trello boards into Taiga",
+                "CHOOSE_PROJECT": "Choose board that you want to import",
+                "NO_PROJECTS": "It seems you have no boards in Trello"
+            },
+            "GITHUB": {
+                "TITLE": "Github",
+                "SELECTOR": "Import your Github project issues",
+                "CHOOSE_PROJECT": "Find the project you want to import",
+                "NO_PROJECTS": "It seems you have no porjects in GitHub",
+                "PROJECT_MEMBERS": "Project Members",
+                "HOW_DO_YOU_WANT_TO_IMPORT": "How do you want to import your issues into Taiga?",
+                "KANBAN_PROJECT": "As user stories in a kanban project",
+                "KANBAN_PROJECT_DESCRIPTION": "After that you can enable scrum with backlog.",
+                "SCRUM_PROJECT": "As user stories in a scrum project",
+                "SCRUM_PROJECT_DESCRIPTION": "After that you can enable kanban mode.",
+                "ISSUES_PROJECT": "As issues",
+                "ISSUES_PROJECT_DESCRIPTION": "You will not able to use your issues in kanban or scrum mode. You will be able to enable kanban or scrum for new user stories"
+            },
+            "ASANA": {
+                "TITLE": "Asana",
+                "SELECTOR": "Import your Asana project and choose how to manage it",
+                "CHOOSE_PROJECT": "Choose project that you want to import",
+                "NO_PROJECTS": "It seems you have no porjects in Asana",
+                "KANBAN_PROJECT": "Kanban",
+                "SCRUM_PROJECT": "Scrum",
+                "CREATE_AS_SCRUM_DESCRIPTION": "The tasks and sub-tasks of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_KANBAN_DESCRIPTION": "The tasks and sub-tasks of your project will be created as Taiga user stories and tasks.",
+                "PROJECT_MEMBERS": "Project Members"
+            },
+            "JIRA": {
+                "TITLE": "Jira",
+                "SELECTOR": "Import your Jira project and choose how to manage it",
+                "CHOOSE_PROJECT": "Choose project or board that you want to import",
+                "NO_PROJECTS": "It seems you have no porjects or boards in Jira",
+                "URL": "Your Jira URL",
+                "PROJECT_MEMBERS": "Project Members",
+                "KANBAN_PROJECT": "Kanban",
+                "SCRUM_PROJECT": "Scrum",
+                "ISSUES_PROJECT": "Sorunlar",
+                "CREATE_AS_SCRUM_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_KANBAN_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_ISSUES_DESCRIPTION": "What do you want to do with sub-issues from the Jira project? (Taiga doesn't allow sub-issues)",
+                "CREATE_NEW_ISSUES": "Convert sub-issues to new Taiga issues",
+                "NOT_CREATE_NEW_ISSUES": "Do not import sub-issues"
             }
         }
     },
@@ -1007,6 +1111,12 @@
         },
         "ADD_MEMBER": {
             "TITLE": "Yeni üye",
+            "PLACEHOLDER": "Filter users or write an email to invite",
+            "ADD_EMAIL": "Add email",
+            "REMOVE": "Remove",
+            "INVITE": "Invite",
+            "CHOOSE_ROLE": "Choose a role",
+            "PLACEHOLDER_INVITATION_TEXT": "(Opsiyonel) Davetinize kişiselleştirilmiş bir metin ekleyin. Yeni üyelerinize tatlı bir şeyler söyleyin ;-)",
             "HELP_TEXT": "Eğer kullanıcılar önceden Taigaya kayıt olmuşlarsa, otomatik olarak ekleneceklerdir. Eğer olmamışlarsa bir davet mektubu alacaklardır."
         },
         "CREATE_ISSUE": {
@@ -1068,6 +1178,12 @@
             "TITLE": "Who do you want to be the new project owner?",
             "ADD_COMMENT": "Add comment",
             "BUTTON": "Ask this project member to become the new project owner"
+        },
+        "CONTACT_PROJECT": {
+            "TITLE": "Send an email to",
+            "WARNING": "The email will be received by the project admins",
+            "PLACEHOLDER": "Write your message",
+            "SEND": "Send"
         }
     },
     "EPIC": {
@@ -1119,7 +1235,7 @@
             "CLOSE": "Close",
             "SYNCHRONIZE_LINK": "synchronize with Taiga Tribe",
             "PUBLISH_MORE_INFO_TITLE": "Do you need somebody for this task?",
-            "PUBLISH_MORE_INFO_TEXT": "<p>If you need help with a particular piece of work you can easily create gigs on<a href='taigatribe.com' title='Taiga Tribe'> Taiga Tribe </a> and receive help from all over the world. You will be able to control and manage the gig enjoying a great community eager to contribute.</p><p><a href='taigatribe.com' title='Taiga Tribe'> TaigaTribe </a>  was born as a Taiga sibling. Both platforms can live separately but we believe that there is much power in using them combined so we are making sure the integration works like a charm.</p>"
+            "PUBLISH_MORE_INFO_TEXT": "<p>If you need help with a particular piece of work you can easily create gigs on<a href='http://taigatribe.com' title='Taiga Tribe'> Taiga Tribe </a> and receive help from all over the world. You will be able to control and manage the gig enjoying a great community eager to contribute.</p><p><a href='http://taigatribe.com' title='Taiga Tribe'> TaigaTribe </a>  was born as a Taiga sibling. Both platforms can live separately but we believe that there is much power in using them combined so we are making sure the integration works like a charm.</p>"
         },
         "FIELDS": {
             "TEAM_REQUIREMENT": "Takım Gereksinimi",
@@ -1247,6 +1363,12 @@
             "TOGGLE": "Etiket görünürlüğünü değiştir",
             "SHOW": "Etiketleri göster",
             "HIDE": "Etiketleri gizler"
+        },
+        "FORECASTING": {
+            "TITLE": "Velocity forecasting",
+            "BACKLOG": "Display backlog",
+            "NEW_SPRINT": "Candidate User Stories for your next sprint based on your velocity. Click to create a new sprint.",
+            "CURRENT_SPRINT": "Candidate User Stories for your sprint based on your velocity. Click to add to current sprint."
         },
         "TABLE": {
             "COLUMN_US": "Kullanıcı Hikayeleri ",
@@ -1516,20 +1638,6 @@
             "THEME": "Tema",
             "THEME_DEFAULT": "-- varsayılan temayı kullan --"
         }
-    },
-    "WIZARD": {
-        "SECTION_TITLE_CREATE_PROJECT": "Proje Oluştur",
-        "CREATE_PROJECT_TEXT": "Taze ve temiz. Heycan verici!",
-        "CHOOSE_TEMPLATE": "Which template fits your project best?",
-        "CHOOSE_TEMPLATE_TITLE": "More info about project templates",
-        "CHOOSE_TEMPLATE_INFO": "More info",
-        "PROJECT_DETAILS": "Project Details",
-        "PUBLIC_PROJECT": "Public Project",
-        "PRIVATE_PROJECT": "Private Project",
-        "CREATE_PROJECT": "Proje oluştur",
-        "MAX_PRIVATE_PROJECTS": "You've reached the maximum number of private projects",
-        "MAX_PUBLIC_PROJECTS": "Unfortunately, you've reached the maximum number of public projects",
-        "CHANGE_PLANS": "change plans"
     },
     "WIKI": {
         "PAGE_TITLE": "{{wikiPageName}} - Wiki - {{projectName}}",

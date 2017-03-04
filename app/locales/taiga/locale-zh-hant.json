@@ -41,7 +41,7 @@
         "LOGOUT": "登出",
         "EXTERNAL_USER": "外部使用者",
         "GENERIC_ERROR": "我們的系統指出{{error}}.",
-        "IOCAINE_TEXT": "感到任務的不堪負荷？確認其它人在編輯任務時知道此狀況，可以點選Iocaine。它可能會成為免疫的致命狀況，只要長期小量消耗，但如果你只是偶而挑戰它可有助表現。",
+        "IOCAINE_TEXT": "This member is feeling a bit overwhelmed by this task. Will become immune to the iocaine poison over time with your help. For now, may need a hug.",
         "CLIENT_REQUIREMENT": "Client requirement is new requirement that was not previously expected and it is required to be part of the project",
         "TEAM_REQUIREMENT": "Team requirement is a requirement that must exist in the project but should have no cost for the client",
         "OWNER": "Project Owner",
@@ -202,9 +202,9 @@
             "CONFIRM_DELETE": "記住在此客制欄位裏的數值資料都將遭刪除\n你確定要繼續嗎?"
         },
         "FILTERS": {
-            "TITLE": "過濾器",
             "INPUT_PLACEHOLDER": "主旨或參考",
             "TITLE_ACTION_FILTER_BUTTON": "搜尋",
+            "TITLE": "過濾器",
             "INPUT_SEARCH_PLACEHOLDER": "主旨或參考",
             "TITLE_ACTION_SEARCH": "搜尋",
             "ACTION_SAVE_CUSTOM_FILTER": "儲存為客製過濾器 ",
@@ -227,34 +227,9 @@
             }
         },
         "WYSIWYG": {
-            "H1_BUTTON": "第一層標頭　",
-            "H1_SAMPLE_TEXT": "你的頭銜　",
-            "H2_BUTTON": "第二層標頭　",
-            "H2_SAMPLE_TEXT": "你的頭銜　",
-            "H3_BUTTON": "第三標頭",
-            "H3_SAMPLE_TEXT": "你的頭銜",
-            "BOLD_BUTTON": "粗體字",
-            "BOLD_BUTTON_SAMPLE_TEXT": "你的文字在此",
-            "ITALIC_BUTTON": "斜體字",
-            "ITALIC_SAMPLE_TEXT": "你的文字在此",
-            "STRIKE_BUTTON": "刪除線",
-            "STRIKE_SAMPLE_TEXT": "你的文字在此",
-            "BULLETED_LIST_BUTTON": "次序列表",
-            "BULLETED_LIST_SAMPLE_TEXT": "你的文字在此",
-            "NUMERIC_LIST_BUTTON": "列號清單",
-            "NUMERIC_LIST_SAMPLE_TEXT": "你的文字在此　",
-            "PICTURE_BUTTON": "圖片",
-            "PICTURE_SAMPLE_TEXT": "對照圖片的說明文",
-            "LINK_BUTTON": "連結",
-            "LINK_SAMPLE_TEXT": "文字連結在此",
-            "QUOTE_BLOCK_BUTTON": "引言區塊",
-            "QUOTE_BLOCK_SAMPLE_TEXT": "你的文字在此",
-            "CODE_BLOCK_BUTTON": "原始碼區塊",
-            "CODE_BLOCK_SAMPLE_TEXT": "你的文字在此",
-            "PREVIEW_BUTTON": "預視　",
-            "EDIT_BUTTON": "編輯",
-            "ATTACH_FILE_HELP": "Attach files by dragging & dropping on the textarea above.",
-            "ATTACH_FILE_HELP_SAVE_FIRST": "Save first before if you want to attach files by dragging & dropping on the textarea above.",
+            "OUTDATED": "Another person has made changes while you were editing. Check the new version on the activiy tab before you save your changes.",
+            "ATTACH_FILE_HELP": "Attach files by dragging & dropping on the text area above.",
+            "ATTACH_FILE_HELP_SAVE_FIRST": "Save first before if you want to attach files by dragging & dropping on the text area above.",
             "MARKDOWN_HELP": "Markdown 語法協助"
         },
         "PERMISIONS_CATEGORIES": {
@@ -543,6 +518,7 @@
             "RECRUITING": "這個專案是否在徵人",
             "RECRUITING_MESSAGE": "你在找誰？",
             "RECRUITING_PLACEHOLDER": "定義你要找的資訊",
+            "FEEDBACK": "Receive feedback from Taiga users?",
             "PUBLIC_PROJECT": "公開專案",
             "PRIVATE_PROJECT": "不公開專案",
             "PRIVATE_OR_PUBLIC": "公開專案和私密專案有何差異?",
@@ -595,6 +571,7 @@
             "ISSUE_DESCRIPTION": "問題客製化欄位",
             "ISSUE_ADD": "在問題中加入客制欄位",
             "FIELD_TYPE_TEXT": "單行文字",
+            "FIELD_TYPE_RICHTEXT": "Rich text",
             "FIELD_TYPE_MULTI": "多行",
             "FIELD_TYPE_DATE": "日期",
             "FIELD_TYPE_URL": "Url"
@@ -896,10 +873,8 @@
             "SECTION_TITLE": "你的專案",
             "PLACEHOLDER_SEARCH": "搜尋",
             "ACTION_CREATE_PROJECT": "創建專案",
-            "ACTION_IMPORT_PROJECT": "滙入專案",
             "MANAGE_PROJECTS": "管理專案",
             "TITLE_CREATE_PROJECT": "創建專案",
-            "TITLE_IMPORT_PROJECT": "滙入專案",
             "TITLE_PRVIOUS_PROJECT": "顯示過去專案",
             "TITLE_NEXT_PROJECT": "顯示下一個任務",
             "HELP_TITLE": "Taiga支援頁",
@@ -925,10 +900,77 @@
             "DISCOVER": "發現",
             "ACTION_REORDER": "拖移 & 丟到來記錄"
         },
+        "LIKE_BUTTON": {
+            "LIKE": "喜歡",
+            "LIKED": "喜歡",
+            "UNLIKE": "不喜歡",
+            "BUTTON_TITLE": "是否喜歡該專案",
+            "COUNTER_TITLE": "{total, plural, one{一個粉絲} other{# 粉絲}}"
+        },
+        "WATCH_BUTTON": {
+            "BUTTON_TITLE": "觀注本專案並設置通知選項",
+            "WATCH": "觀注",
+            "WATCHING": "觀看中",
+            "COUNTER_TITLE": "{total, plural, one{一個觀注者} other{# 觀注者}}",
+            "OPTIONS": {
+                "NOTIFY_ALL": "接收所有通知",
+                "NOTIFY_ALL_TITLE": "接到該專案的所有通知",
+                "NOTIFY_INVOLVED": "只有相關",
+                "NOTIFY_INVOLVED_TITLE": "只接收與你相關的通知訊息",
+                "UNWATCH": "不觀注",
+                "UNWATCH_TITLE": "不再觀注此專案"
+            }
+        },
+        "CONTACT_BUTTON": {
+            "CONTACT_TITLE": "Contact the project team",
+            "CONTACT_BUTTON": "Contact the project"
+        },
+        "CREATE": {
+            "TITLE": "創建專案",
+            "FRESH": "新鮮與乾淨，太好了",
+            "CHOOSE_TEMPLATE": "Which template fits your project better?",
+            "TEMPLATE_SCRUM": "Scrum",
+            "TEMPLATE_SCRUM_DESC": "Prioritize and solve your tasks in short time cycles.",
+            "TEMPLATE_SCRUM_LONGDESC": "Scrum is an iterative and incremental agile software development methodology for managing product development.\nThe product backlog is what will ultimately be delivered, ordered into the sequence in which it should be delivered. Product Backlogs are broken into manageable, executable chunks named sprints. Every certain amount of time the team initiates a new sprint and commits to deliver a certain number of user stories from the backlog, in accordance with their skills, abilities and resources. The project advances as the backlog becomes depleted.",
+            "TEMPLATE_KANBAN": "Kanban(看板)",
+            "TEMPLATE_KANBAN_DESC": "Keep a constant workflow on independent tasks",
+            "TEMPLATE_KANBAN_LONGDESC": "The Kanban methodology is used to divide project development (any sort of project) into stages.\nA kanban card is like an index card or post-it note that details every task (or user story) in a project that needs to be completed. The Kanban board is used to move each card from one state of completion to the next and in so doing, helps track progress.",
+            "DUPLICATE": "Duplicate project",
+            "DUPLICATE_DESC": "Start clean and keep your configuration",
+            "IMPORT": "滙入專案",
+            "IMPORT_DESC": "Import your project from multiple platforms into Taiga",
+            "INVITE": "Invite to the project",
+            "SOLO_PROJECT": "You'll be alone in this project",
+            "INVITE_LATER": "(You'll be able to invite more members later)",
+            "BACK": "後台",
+            "MAX_PRIVATE_PROJECTS": "Unfortunately, You've reached the maximum number of private projects.\nIf you would like to increase the current limit please contact the administrator.",
+            "MAX_PUBLIC_PROJECTS": "Unfortunately, You've reached the maximum number of public projects.\nIf you would like to increase the current limit please contact the administrator.",
+            "PUBLIC_PROJECT": "Public Project",
+            "PRIVATE_PROJECT": "Private Project",
+            "MAX_MEMBERS": "Unfortunately, your current plan allows for a maximum of {{max_memberships}} members per project.\n Unselect some members or contact the administrator."
+        },
+        "COMMON": {
+            "DETAILS": "New project details",
+            "PROJECT_TITLE": "Project Name",
+            "PROJECT_DESCRIPTION": "Project Description"
+        },
+        "DUPLICATE": {
+            "TITLE": "Duplicate Project",
+            "DESCRIPTION": "Start clean and keep your configuration",
+            "SELECT_PLACEHOLDER": "Choose an existing project to duplicate",
+            "DETAILS": "New project details",
+            "CREATE_PROJECT_TEXT": "新鮮與乾淨，太好了",
+            "CHOOSE_TEMPLATE_TITLE": "More info about project templates",
+            "CHOOSE_TEMPLATE_INFO": "More info",
+            "PROJECT_DETAILS": "Project Details",
+            "PUBLIC_PROJECT": "Public Project",
+            "PRIVATE_PROJECT": "Private Project",
+            "CREATE_PROJECT": "創建專案",
+            "CHANGE_PLANS": "change plans"
+        },
         "IMPORT": {
-            "TITLE": "滙入專案中",
-            "UPLOADING_FILE": "上傳傾倒檔案",
-            "DESCRIPTION": "這個過桯要花點時間，請保持视窗開啟",
+            "TITLE": "Import Project",
+            "DESCRIPTION": "Import your project from multiple platforms into Taiga",
             "ASYNC_IN_PROGRESS_TITLE": "我們的工程師對你的專案很重要哦",
             "ASYNC_IN_PROGRESS_MESSAGE": "這個過程要花上一點時間<br/> 當弄好時我們會發給你一封郵件",
             "UPLOAD_IN_PROGRESS_MESSAGE": "已上傳 {{totalSize}}中的{{uploadedSize}} ",
@@ -937,8 +979,32 @@
             "ERROR_MESSAGE": "我們的系統無法滙入你的資料",
             "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) 超過系統容量上限, 請重傳小一點的檔案 ({{maxFileSize}})",
             "SYNC_SUCCESS": "你的專案已成功滙入",
+            "IMPORT": "Import",
+            "ARCHIVED": "歸檔",
+            "ARCHIVED_DESCRIPTION": "You have archived projects, Do you want to import your archived projects?",
+            "WHO_IS": "Their tasks will be assigned to ...",
+            "WRITE_EMAIL": "Or if you want, write the email that their use in Taiga",
+            "SEARCH_CONTACT": "Or if you want, search in your contacts",
+            "WRITE_EMAIL_LABEL": "Write the email that their use in Taiga",
+            "EMAIL_NOT_FOUND": "We did not find any users with that email",
+            "ACCEEDE": "Acceede",
+            "PROJECT_MEMBERS": "Project Members",
+            "PROCESS_DESCRIPTION": "Tell us who from Taiga you want to assign the tasks of {{platform}}",
+            "MATCH": "Is <strong>{{user_external}}</strong> the same person as <strong>{{user_internal}}</strong>?",
+            "CHOOSE": "Select user",
+            "LINKS": "Links with {{platform}}",
+            "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original {{platform}} card?",
+            "WARNING_MAIL_USER": "Note that if the user does not have a Taiga account we will not be able to assign the tasks to him.",
+            "ASSIGN": "指派",
+            "PROJECT_SELECTOR": {
+                "NO_RESULTS": "It looks like nothing was found with your search criteria",
+                "ACTION_SEARCH": "search",
+                "ACTION_BACK": "Back"
+            },
             "PROJECT_RESTRICTIONS": {
-                "PROJECT_MEMBERS_DESC": "The project you are trying to import has {{members}} members, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per project. If you would like to increase that limit please contact the administrator.",
+                "PROJECT_MEMBERS_DESC_PRIVATE": "The project you are trying to import has {{members}} members including you, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per private project. If you would like to increase that limit please contact the administrator.",
+                "PROJECT_MEMBERS_DESC_PUBLIC": "The project you are trying to import has {{members}} members including you, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per public project. If you would like to increase that limit please contact the administrator.",
+                "ACCOUNT_ALLOW_MEMBERS": "Your account only allows {{members}} members",
                 "PRIVATE_PROJECTS_SPACE": {
                     "TITLE": "Unfortunately, your current plan does not allow for additional private projects",
                     "DESC": "The project you are trying to import is private. Unfortunately, your current plan does not allow for additional private projects."
@@ -961,27 +1027,65 @@
                     "TITLE": "Unfortunately your current plan doesn't allow additional public projects or an increase of more than {{max_memberships}} members per public project",
                     "DESC": "The project that you are trying to import is public and has more than {{members}} members."
                 }
-            }
-        },
-        "LIKE_BUTTON": {
-            "LIKE": "喜歡",
-            "LIKED": "喜歡",
-            "UNLIKE": "不喜歡",
-            "BUTTON_TITLE": "是否喜歡該專案",
-            "COUNTER_TITLE": "{total, plural, one{一個粉絲} other{# 粉絲}}"
-        },
-        "WATCH_BUTTON": {
-            "BUTTON_TITLE": "觀注本專案並設置通知選項",
-            "WATCH": "觀注",
-            "WATCHING": "觀看中",
-            "COUNTER_TITLE": "{total, plural, one{一個觀注者} other{# 觀注者}}",
-            "OPTIONS": {
-                "NOTIFY_ALL": "接收所有通知",
-                "NOTIFY_ALL_TITLE": "接到該專案的所有通知",
-                "NOTIFY_INVOLVED": "只有相關",
-                "NOTIFY_INVOLVED_TITLE": "只接收與你相關的通知訊息",
-                "UNWATCH": "不觀注",
-                "UNWATCH_TITLE": "不再觀注此專案"
+            },
+            "IN_PROGRESS": {
+                "TITLE": "滙入專案中",
+                "DESCRIPTION": "這個過桯要花點時間，請保持视窗開啟"
+            },
+            "WARNING": {
+                "TITLE": "Some taks will be unassigned",
+                "DESCRIPTION": "There are still unidentified people. The cards assigned to these people will remain unassigned. Check all the contacts to not lose that information.",
+                "CHECK": "Check contacts"
+            },
+            "TAIGA": {
+                "SELECTOR": "Import your Taiga project"
+            },
+            "TRELLO": {
+                "TITLE": "Trello",
+                "SELECTOR": "Import your Trello boards into Taiga",
+                "CHOOSE_PROJECT": "Choose board that you want to import",
+                "NO_PROJECTS": "It seems you have no boards in Trello"
+            },
+            "GITHUB": {
+                "TITLE": "Githun",
+                "SELECTOR": "Import your Github project issues",
+                "CHOOSE_PROJECT": "Find the project you want to import",
+                "NO_PROJECTS": "It seems you have no porjects in GitHub",
+                "PROJECT_MEMBERS": "Project Members",
+                "HOW_DO_YOU_WANT_TO_IMPORT": "How do you want to import your issues into Taiga?",
+                "KANBAN_PROJECT": "As user stories in a kanban project",
+                "KANBAN_PROJECT_DESCRIPTION": "After that you can enable scrum with backlog.",
+                "SCRUM_PROJECT": "As user stories in a scrum project",
+                "SCRUM_PROJECT_DESCRIPTION": "After that you can enable kanban mode.",
+                "ISSUES_PROJECT": "As issues",
+                "ISSUES_PROJECT_DESCRIPTION": "You will not able to use your issues in kanban or scrum mode. You will be able to enable kanban or scrum for new user stories"
+            },
+            "ASANA": {
+                "TITLE": "Asana",
+                "SELECTOR": "Import your Asana project and choose how to manage it",
+                "CHOOSE_PROJECT": "Choose project that you want to import",
+                "NO_PROJECTS": "It seems you have no porjects in Asana",
+                "KANBAN_PROJECT": "Kanban(看板)",
+                "SCRUM_PROJECT": "Scrum",
+                "CREATE_AS_SCRUM_DESCRIPTION": "The tasks and sub-tasks of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_KANBAN_DESCRIPTION": "The tasks and sub-tasks of your project will be created as Taiga user stories and tasks.",
+                "PROJECT_MEMBERS": "Project Members"
+            },
+            "JIRA": {
+                "TITLE": "Jira",
+                "SELECTOR": "Import your Jira project and choose how to manage it",
+                "CHOOSE_PROJECT": "Choose project or board that you want to import",
+                "NO_PROJECTS": "It seems you have no porjects or boards in Jira",
+                "URL": "Your Jira URL",
+                "PROJECT_MEMBERS": "Project Members",
+                "KANBAN_PROJECT": "Kanban(看板)",
+                "SCRUM_PROJECT": "Scrum",
+                "ISSUES_PROJECT": "問題 ",
+                "CREATE_AS_SCRUM_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_KANBAN_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
+                "CREATE_AS_ISSUES_DESCRIPTION": "What do you want to do with sub-issues from the Jira project? (Taiga doesn't allow sub-issues)",
+                "CREATE_NEW_ISSUES": "Convert sub-issues to new Taiga issues",
+                "NOT_CREATE_NEW_ISSUES": "Do not import sub-issues"
             }
         }
     },
@@ -1007,6 +1111,12 @@
         },
         "ADD_MEMBER": {
             "TITLE": "新成員",
+            "PLACEHOLDER": "Filter users or write an email to invite",
+            "ADD_EMAIL": "Add email",
+            "REMOVE": "Remove",
+            "INVITE": "Invite",
+            "CHOOSE_ROLE": "Choose a role",
+            "PLACEHOLDER_INVITATION_TEXT": "(非必要) 加上一段私人文字在邀請信，告訴你的新成員一些好事  ;-)",
             "HELP_TEXT": "如果用戶已註冊Taiga帳戶，他們會自動被加入。否則他們會收到一封加入的邀請信"
         },
         "CREATE_ISSUE": {
@@ -1068,6 +1178,12 @@
             "TITLE": "Who do you want to be the new project owner?",
             "ADD_COMMENT": "Add comment",
             "BUTTON": "Ask this project member to become the new project owner"
+        },
+        "CONTACT_PROJECT": {
+            "TITLE": "Send an email to",
+            "WARNING": "The email will be received by the project admins",
+            "PLACEHOLDER": "Write your message",
+            "SEND": "Send"
         }
     },
     "EPIC": {
@@ -1119,7 +1235,7 @@
             "CLOSE": "Close",
             "SYNCHRONIZE_LINK": "synchronize with Taiga Tribe",
             "PUBLISH_MORE_INFO_TITLE": "Do you need somebody for this task?",
-            "PUBLISH_MORE_INFO_TEXT": "<p>If you need help with a particular piece of work you can easily create gigs on<a href='taigatribe.com' title='Taiga Tribe'> Taiga Tribe </a> and receive help from all over the world. You will be able to control and manage the gig enjoying a great community eager to contribute.</p><p><a href='taigatribe.com' title='Taiga Tribe'> TaigaTribe </a>  was born as a Taiga sibling. Both platforms can live separately but we believe that there is much power in using them combined so we are making sure the integration works like a charm.</p>"
+            "PUBLISH_MORE_INFO_TEXT": "<p>If you need help with a particular piece of work you can easily create gigs on<a href='http://taigatribe.com' title='Taiga Tribe'> Taiga Tribe </a> and receive help from all over the world. You will be able to control and manage the gig enjoying a great community eager to contribute.</p><p><a href='http://taigatribe.com' title='Taiga Tribe'> TaigaTribe </a>  was born as a Taiga sibling. Both platforms can live separately but we believe that there is much power in using them combined so we are making sure the integration works like a charm.</p>"
         },
         "FIELDS": {
             "TEAM_REQUIREMENT": "團隊要求",
@@ -1247,6 +1363,12 @@
             "TOGGLE": "切換標籤可見度",
             "SHOW": "顯示標籤",
             "HIDE": "隱藏標籤"
+        },
+        "FORECASTING": {
+            "TITLE": "Velocity forecasting",
+            "BACKLOG": "Display backlog",
+            "NEW_SPRINT": "Candidate User Stories for your next sprint based on your velocity. Click to create a new sprint.",
+            "CURRENT_SPRINT": "Candidate User Stories for your sprint based on your velocity. Click to add to current sprint."
         },
         "TABLE": {
             "COLUMN_US": "使用者故事",
@@ -1516,20 +1638,6 @@
             "THEME": "主題",
             "THEME_DEFAULT": "-- 使用預設主題--"
         }
-    },
-    "WIZARD": {
-        "SECTION_TITLE_CREATE_PROJECT": "創建專案",
-        "CREATE_PROJECT_TEXT": "新鮮與乾淨，太好了",
-        "CHOOSE_TEMPLATE": "Which template fits your project best?",
-        "CHOOSE_TEMPLATE_TITLE": "More info about project templates",
-        "CHOOSE_TEMPLATE_INFO": "More info",
-        "PROJECT_DETAILS": "Project Details",
-        "PUBLIC_PROJECT": "Public Project",
-        "PRIVATE_PROJECT": "Private Project",
-        "CREATE_PROJECT": "創建專案",
-        "MAX_PRIVATE_PROJECTS": "You've reached the maximum number of private projects",
-        "MAX_PUBLIC_PROJECTS": "Unfortunately, you've reached the maximum number of public projects",
-        "CHANGE_PLANS": "change plans"
     },
     "WIKI": {
         "PAGE_TITLE": "{{wikiPageName}} - 維基 - {{projectName}}",
