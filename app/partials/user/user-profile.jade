@@ -54,18 +54,18 @@ div.wrapper(
                         placeholder="{{'USER_PROFILE.FIELD.USERNAME' | translate}}",
                     )
 
-                fieldset
-                    label(for="email", translate="USER_PROFILE.FIELD.EMAIL")
-                    input(
-                        type="email"
-                        name="email"
-                        id="email"
-                        ng-model="user.email"
-                        data-type="email"
-                        data-required="true"
-                        data-maxlength="255"
-                        placeholder="{{'USER_PROFILE.FIELD.EMAIL' | translate}}"
-                    )
+                //- fieldset
+                //-     label(for="email", translate="USER_PROFILE.FIELD.EMAIL")
+                //-     input(
+                //-         type="email"
+                //-         name="email"
+                //-         id="email"
+                //-         ng-model="user.email"
+                //-         data-type="email"
+                //-         data-required="true"
+                //-         data-maxlength="255"
+                //-         placeholder="{{'USER_PROFILE.FIELD.EMAIL' | translate}}"
+                //-     )
 
                 fieldset
                     label(for="full-name", translate="USER_PROFILE.FIELD.FULL_NAME")
@@ -79,25 +79,25 @@ div.wrapper(
                         placeholder="{{'USER_PROFILE.FIELD.PLACEHOLDER_FULL_NAME' | translate}}",
                     )
 
-                fieldset
-                    label(for="lang", translate="USER_PROFILE.FIELD.LANGUAGE")
-                    select(
-                        name="lang"
-                        id="lang"
-                        ng-model="lang"
-                        ng-options="locale.code as locale.name for locale in locales"
-                    )
-                        option(value="", translate="USER_PROFILE.FIELD.LANGUAGE_DEFAULT")
+                //- fieldset
+                //-     label(for="lang", translate="USER_PROFILE.FIELD.LANGUAGE")
+                //-     select(
+                //-         name="lang"
+                //-         id="lang"
+                //-         ng-model="lang"
+                //-         ng-options="locale.code as locale.name for locale in locales"
+                //-     )
+                //-         option(value="", translate="USER_PROFILE.FIELD.LANGUAGE_DEFAULT")
 
-                 fieldset
-                    label(for="theme", translate="USER_PROFILE.FIELD.THEME")
-                    select(
-                        name="theme"
-                        id="theme"
-                        ng-model="theme"
-                        ng-options="availableTheme for availableTheme in availableThemes"
-                    )
-                        option(value="", translate="USER_PROFILE.FIELD.THEME_DEFAULT")
+                //-  fieldset
+                //-     label(for="theme", translate="USER_PROFILE.FIELD.THEME")
+                //-     select(
+                //-         name="theme"
+                //-         id="theme"
+                //-         ng-model="theme"
+                //-         ng-options="availableTheme for availableTheme in availableThemes"
+                //-     )
+                //-         option(value="", translate="USER_PROFILE.FIELD.THEME_DEFAULT")
 
                 fieldset
                     label(for="bio", translate="USER_PROFILE.FIELD.BIO")
@@ -116,11 +116,11 @@ div.wrapper(
                         title="{{'COMMON.SAVE' | translate}}",
                         translate="COMMON.SAVE"
                     )
-                    a.delete-account(
-                        href=""
-                        title="{{'USER_PROFILE.ACTION_DELETE_ACCOUNT' | translate}}"
-                        ng-click="ctrl.openDeleteLightbox()"
-                        translate="USER_PROFILE.ACTION_DELETE_ACCOUNT"
-                    )
+                    //- a.delete-account(
+                    //-     href=""
+                    //-     title="{{'USER_PROFILE.ACTION_DELETE_ACCOUNT' | translate}}"
+                    //-     ng-click="ctrl.openDeleteLightbox()"
+                    //-     translate="USER_PROFILE.ACTION_DELETE_ACCOUNT"
+                    //- )
 
 div.lightbox.lightbox-delete-account(tg-lb-delete-user)

@@ -95,76 +95,76 @@ div.wrapper(
                         active-users="activeUsers"
                     )
 
-                fieldset.looking-for-people
-                    .looking-for-people-selector
-                        span {{ 'ADMIN.PROJECT_PROFILE.RECRUITING' | translate }}
-                        tg-svg(
-                            svg-icon="icon-recruit",
-                            svg-title-translate="ADMIN.PROJECT_PROFILE.RECRUITING_MESSAGE"
-                        )
-                        div.check
-                            input(
-                                type="checkbox",
-                                ng-model="project.is_looking_for_people"
-                            )
-                            div
-                            span.check-text.check-yes(translate="COMMON.YES")
-                            span.check-text.check-no(translate="COMMON.NO")
+                //- fieldset.looking-for-people
+                //-     .looking-for-people-selector
+                //-         span {{ 'ADMIN.PROJECT_PROFILE.RECRUITING' | translate }}
+                //-         tg-svg(
+                //-             svg-icon="icon-recruit",
+                //-             svg-title-translate="ADMIN.PROJECT_PROFILE.RECRUITING_MESSAGE"
+                //-         )
+                //-         div.check
+                //-             input(
+                //-                 type="checkbox",
+                //-                 ng-model="project.is_looking_for_people"
+                //-             )
+                //-             div
+                //-             span.check-text.check-yes(translate="COMMON.YES")
+                //-             span.check-text.check-no(translate="COMMON.NO")
 
-                    .looking-for-people-reason(ng-show="project.is_looking_for_people")
-                        label {{ 'ADMIN.PROJECT_PROFILE.RECRUITING_MESSAGE' | translate }}
-                        input(
-                            type="text"
-                            maxlength="200"
-                            ng-model="project.looking_for_people_note"
-                            placeholder="{{ 'ADMIN.PROJECT_PROFILE.RECRUITING_PLACEHOLDER' | translate }}"
-                        )
+                //-     .looking-for-people-reason(ng-show="project.is_looking_for_people")
+                //-         label {{ 'ADMIN.PROJECT_PROFILE.RECRUITING_MESSAGE' | translate }}
+                //-         input(
+                //-             type="text"
+                //-             maxlength="200"
+                //-             ng-model="project.looking_for_people_note"
+                //-             placeholder="{{ 'ADMIN.PROJECT_PROFILE.RECRUITING_PLACEHOLDER' | translate }}"
+                //-         )
 
                 tg-admin-project-restrictions(project="project")
 
-                fieldset
-                    .project-privacy-settings
-                        div.privacy-option
-                            input.privacy-project(
-                                ng-disabled="project.is_private && !project.is_private_extra_info.can_be_updated"
-                                type="radio"
-                                id="private-project"
-                                name="privacy-project"
-                                ng-model="project.is_private"
-                                ng-value="false"
-                            )
-                            label.trans-button(for="private-project") {{ 'ADMIN.PROJECT_PROFILE.PUBLIC_PROJECT' | translate }}
+                //- fieldset
+                //-     .project-privacy-settings
+                //-         div.privacy-option
+                //-             input.privacy-project(
+                //-                 ng-disabled="project.is_private && !project.is_private_extra_info.can_be_updated"
+                //-                 type="radio"
+                //-                 id="private-project"
+                //-                 name="privacy-project"
+                //-                 ng-model="project.is_private"
+                //-                 ng-value="false"
+                //-             )
+                //-             label.trans-button(for="private-project") {{ 'ADMIN.PROJECT_PROFILE.PUBLIC_PROJECT' | translate }}
 
-                        div.privacy-option
-                            input.privacy-project(
-                                ng-disabled="!project.is_private && !project.is_private_extra_info.can_be_updated"
-                                type="radio"
-                                id="public-project"
-                                name="privacy-project"
-                                ng-model="project.is_private"
-                                ng-value="true"
-                            )
-                            label.trans-button(for="public-project") {{'ADMIN.PROJECT_PROFILE.PRIVATE_PROJECT' | translate }}
+                //-         div.privacy-option
+                //-             input.privacy-project(
+                //-                 ng-disabled="!project.is_private && !project.is_private_extra_info.can_be_updated"
+                //-                 type="radio"
+                //-                 id="public-project"
+                //-                 name="privacy-project"
+                //-                 ng-model="project.is_private"
+                //-                 ng-value="true"
+                //-             )
+                //-             label.trans-button(for="public-project") {{'ADMIN.PROJECT_PROFILE.PRIVATE_PROJECT' | translate }}
 
-                    a.private-or-public(
-                        href="https://tree.taiga.io/support/frequently-asked-questions/whats-the-difference-between-public-and-private-projects/"
-                        target="_blank"
-                    )
-                        tg-svg(
-                            svg-icon="icon-question",
-                            svg-title-translate="ADMIN.PROJECT_PROFILE.PRIVATE_OR_PUBLIC"
-                        )
-                        span {{'ADMIN.PROJECT_PROFILE.PRIVATE_OR_PUBLIC' | translate }}
+                //-     a.private-or-public(
+                //-         href="https://tree.taiga.io/support/frequently-asked-questions/whats-the-difference-between-public-and-private-projects/"
+                //-         target="_blank"
+                //-     )
+                //-         tg-svg(
+                //-             svg-icon="icon-question",
+                //-             svg-title-translate="ADMIN.PROJECT_PROFILE.PRIVATE_OR_PUBLIC"
+                //-         )
+                //-         span {{'ADMIN.PROJECT_PROFILE.PRIVATE_OR_PUBLIC' | translate }}
                 button.button-green.submit-button(
                     type="submit"
                     title="{{'COMMON.SAVE' | translate}}"
                     translate="COMMON.SAVE"
                 )
-                a.delete-project(
-                    href=""
-                    title="{{'ADMIN.PROJECT_PROFILE.DELETE' | translate}}"
-                    ng-click="ctrl.openDeleteLightbox()"
-                ) {{ 'ADMIN.PROJECT_PROFILE.DELETE' | translate }}
+                //- a.delete-project(
+                //-     href=""
+                //-     title="{{'ADMIN.PROJECT_PROFILE.DELETE' | translate}}"
+                //-     ng-click="ctrl.openDeleteLightbox()"
+                //- ) {{ 'ADMIN.PROJECT_PROFILE.DELETE' | translate }}
 
 div.lightbox.lightbox-delete-project(tg-lb-delete-project)
     include ../includes/modules/lightbox-delete-project

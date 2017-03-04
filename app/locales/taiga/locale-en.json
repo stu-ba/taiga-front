@@ -370,7 +370,7 @@
         "PAGE_DESCRIPTION": "Set a new password for your Taiga account and hey!, you may want to eat some more iron-rich food, it's good for your brain :P",
         "SECTION_NAME": "Change password",
         "FIELD_CURRENT_PASSWORD": "Current password",
-        "PLACEHOLDER_CURRENT_PASSWORD": "Your current password (or empty if you have no password yet)",
+        "PLACEHOLDER_CURRENT_PASSWORD": "Your current password",
         "FIELD_NEW_PASSWORD": "New password",
         "PLACEHOLDER_NEW_PASSWORD": "Type a new password",
         "FIELD_RETYPE_PASSWORD": "Retype new password",
