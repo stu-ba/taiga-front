@@ -178,6 +178,8 @@ class AuthService extends taiga.Service
     loginByToken: (token) ->
         url = @urls.resolve("user-me")
         @.removeToken()
+        @.clear()
+        @currentUserService.removeUser()
         @.setToken(token)
 
         return @http.get(url).then (data, status) =>
