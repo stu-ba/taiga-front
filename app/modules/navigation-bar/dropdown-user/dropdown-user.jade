@@ -22,13 +22,13 @@ div.navbar-dropdown.dropdown-user
                 title="{{'PROJECT.NAVIGATION.EDIT_PROFILE_TITLE' | translate}}",
                 translate="PROJECT.NAVIGATION.EDIT_PROFILE")
 
-        li.plugin(ng-repeat="plugin in vm.userSettingsPlugins")
-            a(
-                href=""
-                tg-nav="user-settings-contrib:plugin=plugin.slug"
-                ng-class="{active: plugin.slug == currentPlugin.slug}"
-            )
-                span.title {{ plugin.name }}
+        //- li.plugin(ng-repeat="plugin in vm.userSettingsPlugins")
+        //-     a(
+        //-         href=""
+        //-         tg-nav="user-settings-contrib:plugin=plugin.slug"
+        //-         ng-class="{active: plugin.slug == currentPlugin.slug}"
+        //-     )
+        //-         span.title {{ plugin.name }}
         li
             a(
                 href="#",
@@ -36,22 +36,22 @@ div.navbar-dropdown.dropdown-user
                 title="{{'PROJECT.NAVIGATION.CHANGE_PASSWORD_TITLE' | translate}}",
                 translate="PROJECT.NAVIGATION.CHANGE_PASSWORD")
 
-        li
-            a(
-                href="#",
-                tg-nav="user-settings-mail-notifications",
-                title="{{'PROJECT.NAVIGATION.NOTIFICATIONS_TITLE' | translate}}",
-                translate="PROJECT.NAVIGATION.NOTIFICATIONS")
+        //- li
+        //-     a(
+        //-         href="#",
+        //-         tg-nav="user-settings-mail-notifications",
+        //-         title="{{'PROJECT.NAVIGATION.NOTIFICATIONS_TITLE' | translate}}",
+        //-         translate="PROJECT.NAVIGATION.NOTIFICATIONS")
 
-        li(ng-show="vm.isFeedbackEnabled")
-            a(
-                href="#",
-                ng-click="vm.sendFeedback()",
-                title="{{'PROJECT.NAVIGATION.FEEDBACK_TITLE' | translate}}",
-                translate="PROJECT.NAVIGATION.FEEDBACK")
+        //- li(ng-show="vm.isFeedbackEnabled")
+        //-     a(
+        //-         href="#",
+        //-         ng-click="vm.sendFeedback()",
+        //-         title="{{'PROJECT.NAVIGATION.FEEDBACK_TITLE' | translate}}",
+        //-         translate="PROJECT.NAVIGATION.FEEDBACK")
         li
             a(
-                href="https://tree.taiga.io/support/",
+                href="{{vm.supportUrl}}",
                 target="_blank",
                 title="{{'PROJECT.NAVIGATION.HELP_TITLE' | translate}}",
                 translate="PROJECT.NAVIGATION.HELP")

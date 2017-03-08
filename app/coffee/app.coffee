@@ -389,37 +389,37 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
         }
     )
 
-    # Admin - Third Parties
-    $routeProvider.when("/project/:pslug/admin/third-parties/webhooks",
-        {
-            templateUrl: "admin/admin-third-parties-webhooks.html",
-            section: "admin"
-        }
-    )
-    $routeProvider.when("/project/:pslug/admin/third-parties/github",
-        {
-            templateUrl: "admin/admin-third-parties-github.html",
-            section: "admin"
-        }
-    )
-    $routeProvider.when("/project/:pslug/admin/third-parties/gitlab",
-        {
-            templateUrl: "admin/admin-third-parties-gitlab.html",
-            section: "admin"
-        }
-    )
-    $routeProvider.when("/project/:pslug/admin/third-parties/bitbucket",
-        {
-            templateUrl: "admin/admin-third-parties-bitbucket.html",
-            section: "admin"
-        }
-    )
-    $routeProvider.when("/project/:pslug/admin/third-parties/gogs",
-        {
-            templateUrl: "admin/admin-third-parties-gogs.html",
-            section: "admin"
-        }
-    )
+    # # Admin - Third Parties
+    # $routeProvider.when("/project/:pslug/admin/third-parties/webhooks",
+    #     {
+    #         templateUrl: "admin/admin-third-parties-webhooks.html",
+    #         section: "admin"
+    #     }
+    # )
+    # $routeProvider.when("/project/:pslug/admin/third-parties/github",
+    #     {
+    #         templateUrl: "admin/admin-third-parties-github.html",
+    #         section: "admin"
+    #     }
+    # )
+    # $routeProvider.when("/project/:pslug/admin/third-parties/gitlab",
+    #     {
+    #         templateUrl: "admin/admin-third-parties-gitlab.html",
+    #         section: "admin"
+    #     }
+    # )
+    # $routeProvider.when("/project/:pslug/admin/third-parties/bitbucket",
+    #     {
+    #         templateUrl: "admin/admin-third-parties-bitbucket.html",
+    #         section: "admin"
+    #     }
+    # )
+    # $routeProvider.when("/project/:pslug/admin/third-parties/gogs",
+    #     {
+    #         templateUrl: "admin/admin-third-parties-gogs.html",
+    #         section: "admin"
+    #     }
+    # )
     # Admin - Contrib Plugins
     $routeProvider.when("/project/:pslug/admin/contrib/:plugin",
         {templateUrl: "contrib/main.html"})
@@ -439,12 +439,12 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
         {templateUrl: "user/user-profile.html"})
     $routeProvider.when("/user-settings/user-change-password",
         {templateUrl: "user/user-change-password.html"})
-    $routeProvider.when("/user-settings/mail-notifications",
-        {templateUrl: "user/mail-notifications.html"})
-    $routeProvider.when("/change-email/:email_token",
-        {templateUrl: "user/change-email.html"})
-    $routeProvider.when("/cancel-account/:cancel_token",
-        {templateUrl: "user/cancel-account.html"})
+    # $routeProvider.when("/user-settings/mail-notifications",
+    #     {templateUrl: "user/mail-notifications.html"})
+    # $routeProvider.when("/change-email/:email_token",
+    #     {templateUrl: "user/change-email.html"})
+    # $routeProvider.when("/cancel-account/:cancel_token",
+    #     {templateUrl: "user/cancel-account.html"})
 
     # UserSettings - Contrib Plugins
     $routeProvider.when("/user-settings/contrib/:plugin",
@@ -482,38 +482,47 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
             controller: "LoginPage",
         }
     )
-    $routeProvider.when("/register",
+    $routeProvider.when("/login/:token",
         {
-            templateUrl: "auth/register.html",
-            title: "REGISTER.PAGE_TITLE",
-            description: "REGISTER.PAGE_DESCRIPTION",
-            disableHeader: true
+            templateUrl: "auth/login.html",
+            title: "LOGIN.PAGE_TITLE",
+            description: "LOGIN.PAGE_DESCRIPTION",
+            disableHeader: true,
+            controller: "LoginPage",
         }
     )
-    $routeProvider.when("/forgot-password",
-        {
-            templateUrl: "auth/forgot-password.html",
-            title: "FORGOT_PASSWORD.PAGE_TITLE",
-            description: "FORGOT_PASSWORD.PAGE_DESCRIPTION",
-            disableHeader: true
-        }
-    )
-    $routeProvider.when("/change-password/:token",
-        {
-            templateUrl: "auth/change-password-from-recovery.html",
-            title: "CHANGE_PASSWORD.PAGE_TITLE",
-            description: "CHANGE_PASSWORD.PAGE_TITLE",
-            disableHeader: true
-        }
-    )
-    $routeProvider.when("/invitation/:token",
-        {
-            templateUrl: "auth/invitation.html",
-            title: "INVITATION.PAGE_TITLE",
-            description: "INVITATION.PAGE_DESCRIPTION",
-            disableHeader: true
-        }
-    )
+    # $routeProvider.when("/register",
+    #     {
+    #         templateUrl: "auth/register.html",
+    #         title: "REGISTER.PAGE_TITLE",
+    #         description: "REGISTER.PAGE_DESCRIPTION",
+    #         disableHeader: true
+    #     }
+    # )
+    # $routeProvider.when("/forgot-password",
+    #     {
+    #         templateUrl: "auth/forgot-password.html",
+    #         title: "FORGOT_PASSWORD.PAGE_TITLE",
+    #         description: "FORGOT_PASSWORD.PAGE_DESCRIPTION",
+    #         disableHeader: true
+    #     }
+    # )
+    # $routeProvider.when("/change-password/:token",
+    #     {
+    #         templateUrl: "auth/change-password-from-recovery.html",
+    #         title: "CHANGE_PASSWORD.PAGE_TITLE",
+    #         description: "CHANGE_PASSWORD.PAGE_TITLE",
+    #         disableHeader: true
+    #     }
+    # )
+    # $routeProvider.when("/invitation/:token",
+    #     {
+    #         templateUrl: "auth/invitation.html",
+    #         title: "INVITATION.PAGE_TITLE",
+    #         description: "INVITATION.PAGE_DESCRIPTION",
+    #         disableHeader: true
+    #     }
+    # )
     $routeProvider.when("/external-apps",
         {
             templateUrl: "external-apps/external-app.html",
@@ -704,7 +713,7 @@ i18nInit = (lang, $translate) ->
     # i18n - moment.js
     moment.locale(lang)
 
-    if (lang != 'en') # en is the default, the file doesn't exist
+    if (lang != 'en') # en is the default, the file doesnt exist
         ljs.load "/#{window._version}/locales/moment-locales/" + lang + ".js"
 
     # i18n - checksley.js

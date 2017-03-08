@@ -327,7 +327,7 @@
         "PAGE_TITLE": "Change you password - Taiga",
         "SECTION_NAME": "Change password",
         "FIELD_CURRENT_PASSWORD": "Current password",
-        "PLACEHOLDER_CURRENT_PASSWORD": "Your current password (or empty if you have no password yet)",
+        "PLACEHOLDER_CURRENT_PASSWORD": "Your current password",
         "FIELD_NEW_PASSWORD": "New password",
         "PLACEHOLDER_NEW_PASSWORD": "Type a new password",
         "FIELD_RETYPE_PASSWORD": "Retype new password",

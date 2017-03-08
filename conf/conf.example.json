@@ -16,6 +16,8 @@
     "maxUploadFileSize": null,
     "contribPlugins": [],
     "tribeHost": null,
+    "gravatar": true,
     "importers": [],
-    "gravatar": true
+    "supportUrl": "https://tree.taiga.io/support/ssssss",
+    "logoutUrl": "http://google.sk"
 }

@@ -175,6 +175,18 @@ class AuthService extends taiga.Service
             @.setUser(user)
             return user
 
+    loginByToken: (token) ->
+        url = @urls.resolve("user-me")
+        @.removeToken()
+        @.clear()
+        @currentUserService.removeUser()
+        @.setToken(token)
+
+        return @http.get(url).then (data, status) =>
+            user = @model.make_model("users", data.data)
+            @.setUser(user)
+            return user
+
     logout: ->
         @.removeToken()
         @.clear()
@@ -266,15 +278,11 @@ module.directive("tgPublicRegisterMessage", ["$tgConfig", "$tgNavUrls", "$routeP
 
 LoginDirective = ($auth, $confirm, $location, $config, $routeParams, $navUrls, $events, $translate, $window) ->
     link = ($scope, $el, $attrs) ->
-        form = new checksley.Form($el.find("form.login-form"))
 
         if $routeParams['next'] and $routeParams['next'] != $navUrls.resolve("login")
             $scope.nextUrl = decodeURIComponent($routeParams['next'])
         else
             $scope.nextUrl = $navUrls.resolve("home")
-
-        if $routeParams['force_next']
-            $scope.nextUrl = decodeURIComponent($routeParams['force_next'])
 
         onSuccess = (response) ->
             $events.setupConnection()
@@ -286,6 +294,18 @@ LoginDirective = ($auth, $confirm, $location, $config, $routeParams, $navUrls, $
 
         onError = (response) ->
             $confirm.notify("light-error", $translate.instant("LOGIN_FORM.ERROR_AUTH_INCORRECT"))
+            
+        if $routeParams.token?
+            console.log("Login token is here" + " next: " + $scope.nextUrl)
+            promise = $auth.loginByToken($routeParams.token)
+            return promise.then(onSuccess, onError)
+        # login by token only, or redirect to login page to yap
+        
+        form = new checksley.Form($el.find("form.login-form"))
+
+        if $routeParams['force_next']
+            $scope.nextUrl = decodeURIComponent($routeParams['force_next'])
+
 
         $scope.onKeyUp = (event) ->
             target = angular.element(event.currentTarget)

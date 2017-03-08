@@ -7,9 +7,9 @@ section.admin-menu
             li#usersettingsmenu-change-password
                 a(href="" tg-nav="user-settings-user-change-password", title="{{ 'USER_SETTINGS.MENU.CHANGE_PASSWORD' | translate }}")
                     span.title(translate="USER_SETTINGS.MENU.CHANGE_PASSWORD")
-            li#usersettingsmenu-mail-notifications
-                a(href="", tg-nav="user-settings-mail-notifications", title="{{ 'USER_SETTINGS.MENU.EMAIL_NOTIFICATIONS' | translate }}")
-                    span.title(translate="USER_SETTINGS.MENU.EMAIL_NOTIFICATIONS")
+            //- li#usersettingsmenu-mail-notifications
+            //-     a(href="", tg-nav="user-settings-mail-notifications", title="{{ 'USER_SETTINGS.MENU.EMAIL_NOTIFICATIONS' | translate }}")
+            //-         span.title(translate="USER_SETTINGS.MENU.EMAIL_NOTIFICATIONS")
             li#usersettings-contrib(ng-repeat="plugin in userSettingsPlugins")
                 a(
                     href=""

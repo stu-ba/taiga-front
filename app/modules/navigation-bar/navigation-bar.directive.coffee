@@ -20,6 +20,7 @@
 NavigationBarDirective = (currentUserService, navigationBarService, locationService, navUrlsService, config) ->
     link = (scope, el, attrs, ctrl) ->
         scope.vm = {}
+        scope.vm.supportUrl = config.get("supportUrl")
 
         taiga.defineImmutableProperty(scope.vm, "projects", () -> currentUserService.projects.get("recents"))
         taiga.defineImmutableProperty(scope.vm, "isAuthenticated", () -> currentUserService.isAuthenticated())
