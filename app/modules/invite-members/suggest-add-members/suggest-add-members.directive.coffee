@@ -31,4 +31,4 @@ SuggestAddMembersDirective = (lightboxService) ->
         }
     }
 
-angular.module("taigaAdmin").directive("tgSuggestAddMembers", SuggestAddMembersDirective)
+angular.module("taigaAdmin").directive("tgSuggestAddMembers", ["lightboxService", SuggestAddMembersDirective])
