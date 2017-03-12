@@ -87,6 +87,11 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
             # prevent edit a pre
             pre.setAttribute('contenteditable', false)
 
+            pre.setAttribute('title', $translate.instant("COMMON.WYSIWYG.DB_CLICK"))
+
+            # prevent text selection in firefox
+            pre.addEventListener 'mousedown', (e) -> e.preventDefault()
+
             if pre.nextElementSibling && pre.nextElementSibling.nodeName.toLowerCase() == 'p' && !pre.nextElementSibling.children.length
                 pre.nextElementSibling.appendChild(document.createElement('br'))
 
@@ -207,6 +212,9 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
         wysiwygCodeHightlighterService.getLanguages().then (codeLans) ->
             $scope.codeLans = codeLans
 
+        setEditMode = (editMode) ->
+            $scope.editMode = editMode
+
         setHtmlMedium = (markdown) ->
             html = wysiwygService.getHTML(markdown)
             editorMedium.html(html)
@@ -271,7 +279,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
             e.preventDefault() if e
 
             if !isEditOnly
-                $scope.editMode = false
+                setEditMode(false)
 
             if notPersist
                 clean()
@@ -296,7 +304,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
             $scope.saving  = false
 
             if !isEditOnly
-                $scope.editMode = false
+                setEditMode(false)
 
             if notPersist
                 clean()
@@ -481,7 +489,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
             mediumInstance.subscribe 'focus', (event) ->
                 $scope.$applyAsync () ->
                     if !$scope.editMode
-                        $scope.editMode = true
+                        setEditMode(true)
 
             mediumInstance.subscribe 'editableDrop', (event) ->
                 $scope.onUploadFile({files: event.dataTransfer.files, cb: uploadEnd})
@@ -503,7 +511,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
                 else if code == 27
                     editorMedium.blur()
 
-            $scope.editMode = editMode
+            setEditMode(editMode)
 
             $scope.$applyAsync () ->
                 wysiwygCodeHightlighterService.addHightlighter(mediumInstance.elements[0])
@@ -523,7 +531,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
                 $scope.outdated = isOutdated()
 
                 if !mediumInstance && isDraft()
-                    $scope.editMode = true
+                    setEditMode(true)
 
                 if ($scope.markdown.length || content.length) && $scope.markdown == content
                     return
