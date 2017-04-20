@@ -16,8 +16,7 @@ window.taigaConfig = {
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
     "importers": [],
-    "contribPlugins": [],
-    "supportUrl": "https://tree.taiga.io/support"
+    "contribPlugins": []
 }
 
 window.taigaContribPlugins = []
