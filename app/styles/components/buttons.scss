@@ -8,7 +8,7 @@
     color: $white;
     cursor: pointer;
     display: inline-block;
-    padding: .4rem 2rem;
+    padding: .6rem 2rem;
     text-align: center;
     text-transform: uppercase;
     transition: all .2s linear;
@@ -59,6 +59,23 @@
         color: $blackish;
     }
 }
+
+.menu-button {
+    @extend %button;
+    border-radius: 0;
+    color: $blackish;
+    &:hover {
+        background: $whitish;
+        color: $gray;
+    }
+    &:visited {
+        color: $blackish;
+    }
+    span {
+        color: $blackish;
+    }
+}
+
 .submit-button {
     width: 100%;
 }
@@ -106,7 +123,7 @@ a.button-gray {
 .button-bulk {
     @extend %button;
     background: $primary;
-    padding: .35rem .5rem;
+    padding: .55rem .75rem;
     .icon {
         fill: currentColor;
         margin-right: 0;

@@ -1,10 +1,10 @@
 ###
-# Copyright (C) 2014-2016 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2016 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2016 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2016 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2016 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2016 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
+# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
+# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
+# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
+# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
+# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -32,6 +32,7 @@ module = angular.module("taigaCommon")
 
 # Custom attributes types (see taiga-back/taiga/projects/custom_attributes/choices.py)
 TEXT_TYPE = "text"
+RICHTEXT_TYPE = "url"
 MULTILINE_TYPE = "multiline"
 DATE_TYPE = "date"
 URL_TYPE = "url"
@@ -53,6 +54,10 @@ TYPE_CHOICES = [
     {
         key: URL_TYPE,
         name: "ADMIN.CUSTOM_FIELDS.FIELD_TYPE_URL"
+    },
+    {
+        key: RICHTEXT_TYPE,
+        name: "ADMIN.CUSTOM_FIELDS.FIELD_TYPE_RICHTEXT"
     }
 ]
 
@@ -145,7 +150,7 @@ module.directive("tgCustomAttributesValues", ["$tgTemplate", "$tgStorage", "$tra
                                               CustomAttributesValuesDirective])
 
 
-CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate, datePickerConfigService) ->
+CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate, datePickerConfigService, wysiwygService) ->
     template = $template.get("custom-attributes/custom-attribute-value.html", true)
     templateEdit = $template.get("custom-attributes/custom-attribute-value-edit.html", true)
 
@@ -168,9 +173,13 @@ CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate,
                 type: attributeValue.type
             }
 
+            scope = $scope.$new()
+            scope.attributeHtml = wysiwygService.getHTML(value)
+
             if editable and (edit or not value)
                 html = templateEdit(ctx)
-                html = $compile(html)($scope)
+
+                html = $compile(html)(scope)
                 $el.html(html)
 
                 if attributeValue.type == DATE_TYPE
@@ -185,13 +194,24 @@ CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate,
                     $el.picker = new Pikaday(datePickerConfig)
             else
                 html = template(ctx)
-                html = $compile(html)($scope)
+                html = $compile(html)(scope)
                 $el.html(html)
 
         isEditable = ->
             permissions = $scope.project.my_permissions
             requiredEditionPerm = $attrs.requiredEditionPerm
             return permissions.indexOf(requiredEditionPerm) > -1
+
+        $scope.saveCustomRichText = (markdown, callback) =>
+            attributeValue.value = markdown
+            $ctrl.updateAttributeValue(attributeValue).then ->
+                callback()
+                render(attributeValue, false)
+
+        $scope.cancelCustomRichText= () =>
+            render(attributeValue, false)
+
+            return null
 
         submit = debounce 2000, (event) =>
             event.preventDefault()
@@ -214,6 +234,9 @@ CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate,
 
         # Bootstrap
         attributeValue = $scope.$eval($attrs.tgCustomAttributeValue)
+        if attributeValue.value == null or attributeValue.value == undefined
+            attributeValue.value = ""
+        $scope.customAttributeValue = attributeValue
         render(attributeValue)
 
         ## Actions (on view mode)
@@ -253,4 +276,4 @@ CustomAttributeValueDirective = ($template, $selectedText, $compile, $translate,
     }
 
 module.directive("tgCustomAttributeValue", ["$tgTemplate", "$selectedText", "$compile", "$translate",
-                                            "tgDatePickerConfigService", CustomAttributeValueDirective])
+                                            "tgDatePickerConfigService", "tgWysiwygService", CustomAttributeValueDirective])
