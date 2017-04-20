@@ -2,7 +2,7 @@ nav.navbar(ng-if="vm.isEnabledHeader")
     div.nav-left
         a.logo(
             ng-if="!vm.isAuthenticated"
-            href="https://taiga.io/",
+            href="/discover",
             title="{{'PROJECT.NAVIGATION.HOMEPAGE' | translate}}"
         )
             include ../../svg/logo.svg
@@ -25,16 +25,9 @@ nav.navbar(ng-if="vm.isEnabledHeader")
     div.nav-right(ng-if="!vm.isAuthenticated")
         a.login(
             ng-click="vm.login()"
-            href="#",
+            href="{{vm.yapUrl}}/auth/login?taiga=discover",
             title="{{ 'LOGIN_COMMON.ACTION_SIGN_IN' | translate }}"
             translate="LOGIN_COMMON.ACTION_SIGN_IN"
-        )
-        a.register(
-            href="#"
-            ng-if="vm.publicRegisterEnabled"
-            tg-nav="register"
-            title="{{ 'REGISTER_FORM.ACTION_SIGN_UP' | translate }}"
-            translate="REGISTER_FORM.ACTION_SIGN_UP"
         )
 
     div.nav-right(ng-if="vm.isAuthenticated")

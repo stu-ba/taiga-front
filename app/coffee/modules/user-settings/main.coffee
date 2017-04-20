@@ -35,60 +35,54 @@ debounce = @.taiga.debounce
 class UserSettingsController extends mixOf(taiga.Controller, taiga.PageMixin)
     @.$inject = [
         "$scope",
-        "$rootScope",
         "$tgConfig",
-        "$tgRepo",
-        "$tgConfirm",
-        "$tgResources",
-        "$routeParams",
-        "$q",
-        "$tgLocation",
-        "$tgNavUrls",
         "$tgAuth",
-        "$translate",
-        "tgErrorHandlingService"
+        "tgErrorHandlingService",
+        "$window"
     ]
 
-    constructor: (@scope, @rootscope, @config, @repo, @confirm, @rs, @params, @q, @location, @navUrls,
-                  @auth, @translate, @errorHandlingService) ->
-        @scope.sectionName = "USER_SETTINGS.MENU.SECTION_TITLE"
-
+    constructor: (@scope, @config, @auth, @errorHandlingService, @window) ->
         @scope.project = {}
         @scope.user = @auth.getUser()
 
         if !@scope.user
             @errorHandlingService.permissionDenied()
 
-        @scope.lang = @getLan()
-        @scope.theme = @getTheme()
+        @.redirectToYap()
 
-        maxFileSize = @config.get("maxUploadFileSize", null)
-        if maxFileSize
-            text = @translate.instant("USER_SETTINGS.AVATAR_MAX_SIZE", {"maxFileSize": sizeFormat(maxFileSize)})
-            @scope.maxFileSizeMsg = text
+        # @scope.lang = @getLan()
+        # @scope.theme = @getTheme()
 
-        promise = @.loadInitialData()
+        # maxFileSize = @config.get("maxUploadFileSize", null)
+        # if maxFileSize
+        #     text = @translate.instant("USER_SETTINGS.AVATAR_MAX_SIZE", {"maxFileSize": sizeFormat(maxFileSize)})
+        #     @scope.maxFileSizeMsg = text
 
-        promise.then null, @.onInitialDataError.bind(@)
+        # promise = @.loadInitialData()
 
-    loadInitialData: ->
-        @scope.availableThemes = @config.get("themes", [])
+        # promise.then null, @.onInitialDataError.bind(@)
 
-        return @rs.locales.list().then (locales) =>
-            @scope.locales = locales
-            return locales
+    # loadInitialData: ->
+    #     @scope.availableThemes = @config.get("themes", [])
 
-    openDeleteLightbox: ->
-        @rootscope.$broadcast("deletelightbox:new", @scope.user)
+    #     return @rs.locales.list().then (locales) =>
+    #         @scope.locales = locales
+    #         return locales
 
-    getLan: ->
-        return @scope.user.lang ||
-               @translate.preferredLanguage()
+    # openDeleteLightbox: ->
+    #     @rootscope.$broadcast("deletelightbox:new", @scope.user)
 
-    getTheme: ->
-        return @scope.user.theme ||
-               @config.get("defaultTheme") ||
-               "taiga"
+    # getLan: ->
+    #     return @scope.user.lang ||
+    #            @translate.preferredLanguage()
+
+    # getTheme: ->
+    #     return @scope.user.theme ||
+    #            @config.get("defaultTheme") ||
+    #            "taiga"
+
+    redirectToYap: ->
+        return @window.location.href = @config.get("yapUrl") + "/profile/edit"
 
 module.controller("UserSettingsController", UserSettingsController)
 
@@ -97,100 +91,101 @@ module.controller("UserSettingsController", UserSettingsController)
 ## User Profile Directive
 #############################################################################
 
-UserProfileDirective = ($confirm, $auth, $repo, $translate) ->
-    link = ($scope, $el, $attrs) ->
-        submit = debounce 2000, (event) =>
-            event.preventDefault()
+# UserProfileDirective = ($confirm, $auth, $repo, $translate) ->
 
-            form = $el.find("form").checksley()
-            return if not form.validate()
+#     link = ($scope, $el, $attrs) ->
+#         submit = debounce 2000, (event) =>
+#             event.preventDefault()
 
-            changeEmail = $scope.user.isAttributeModified("email")
-            $scope.user.lang = $scope.lang
-            $scope.user.theme = $scope.theme
+#             form = $el.find("form").checksley()
+#             return if not form.validate()
 
-            onSuccess = (data) =>
-                $auth.setUser(data)
+#             changeEmail = $scope.user.isAttributeModified("email")
+#             $scope.user.lang = $scope.lang
+#             $scope.user.theme = $scope.theme
 
-                if changeEmail
-                    text = $translate.instant("USER_PROFILE.CHANGE_EMAIL_SUCCESS")
-                    $confirm.success(text)
-                else
-                    $confirm.notify('success')
+#             onSuccess = (data) =>
+#                 $auth.setUser(data)
 
-            onError = (data) =>
-                form.setErrors(data)
-                $confirm.notify('error', data._error_message)
+#                 if changeEmail
+#                     text = $translate.instant("USER_PROFILE.CHANGE_EMAIL_SUCCESS")
+#                     $confirm.success(text)
+#                 else
+#                     $confirm.notify('success')
 
-            $repo.save($scope.user).then(onSuccess, onError)
+#             onError = (data) =>
+#                 form.setErrors(data)
+#                 $confirm.notify('error', data._error_message)
 
-        $el.on "submit", "form", submit
+#             $repo.save($scope.user).then(onSuccess, onError)
 
-        $scope.$on "$destroy", ->
-            $el.off()
+#         $el.on "submit", "form", submit
 
-    return {link:link}
+#         $scope.$on "$destroy", ->
+#             $el.off()
 
-module.directive("tgUserProfile", ["$tgConfirm", "$tgAuth", "$tgRepo", "$translate", UserProfileDirective])
+#     return {link:link}
+
+# module.directive("tgUserProfile", ["$tgConfirm", "$tgAuth", "$tgRepo", "$translate", UserProfileDirective])
 
 
 #############################################################################
 ## User Avatar Directive
 #############################################################################
 
-UserAvatarDirective = ($auth, $model, $rs, $confirm) ->
-    link = ($scope, $el, $attrs) ->
-        showSizeInfo = ->
-            $el.find(".size-info").removeClass("hidden")
+# UserAvatarDirective = ($auth, $model, $rs, $confirm) ->
+#     link = ($scope, $el, $attrs) ->
+#         showSizeInfo = ->
+#             $el.find(".size-info").removeClass("hidden")
 
-        onSuccess = (response) ->
-            user = $model.make_model("users", response.data)
-            $auth.setUser(user)
-            $scope.user = user
+#         onSuccess = (response) ->
+#             user = $model.make_model("users", response.data)
+#             $auth.setUser(user)
+#             $scope.user = user
 
-            $el.find('.loading-overlay').removeClass('active')
-            $confirm.notify('success')
+#             $el.find('.loading-overlay').removeClass('active')
+#             $confirm.notify('success')
 
-        onError = (response) ->
-            showSizeInfo() if response.status == 413
-            $el.find('.loading-overlay').removeClass('active')
-            $confirm.notify('error', response.data._error_message)
+#         onError = (response) ->
+#             showSizeInfo() if response.status == 413
+#             $el.find('.loading-overlay').removeClass('active')
+#             $confirm.notify('error', response.data._error_message)
 
-        # Change photo
-        $el.on "click", ".js-change-avatar", ->
-            $el.find("#avatar-field").click()
+#         # Change photo
+#         $el.on "click", ".js-change-avatar", ->
+#             $el.find("#avatar-field").click()
 
-        $el.on "change", "#avatar-field", (event) ->
-            if $scope.avatarAttachment
-                $el.find('.loading-overlay').addClass("active")
-                $rs.userSettings.changeAvatar($scope.avatarAttachment).then(onSuccess, onError)
+#         $el.on "change", "#avatar-field", (event) ->
+#             if $scope.avatarAttachment
+#                 $el.find('.loading-overlay').addClass("active")
+#                 $rs.userSettings.changeAvatar($scope.avatarAttachment).then(onSuccess, onError)
 
-        # Use gravatar photo
-        $el.on "click", "a.js-use-gravatar", (event) ->
-            $el.find('.loading-overlay').addClass("active")
-            $rs.userSettings.removeAvatar().then(onSuccess, onError)
+#         # Use gravatar photo
+#         $el.on "click", "a.js-use-gravatar", (event) ->
+#             $el.find('.loading-overlay').addClass("active")
+#             $rs.userSettings.removeAvatar().then(onSuccess, onError)
 
-        $scope.$on "$destroy", ->
-            $el.off()
+#         $scope.$on "$destroy", ->
+#             $el.off()
 
-    return {link:link}
+#     return {link:link}
 
-module.directive("tgUserAvatar", ["$tgAuth", "$tgModel", "$tgResources", "$tgConfirm", UserAvatarDirective])
+# module.directive("tgUserAvatar", ["$tgAuth", "$tgModel", "$tgResources", "$tgConfirm", UserAvatarDirective])
 
 
 #############################################################################
 ## User Avatar Model Directive
 #############################################################################
 
-TaigaAvatarModelDirective = ($parse) ->
-    link = ($scope, $el, $attrs) ->
-        model = $parse($attrs.tgAvatarModel)
-        modelSetter = model.assign
+# TaigaAvatarModelDirective = ($parse) ->
+#     link = ($scope, $el, $attrs) ->
+#         model = $parse($attrs.tgAvatarModel)
+#         modelSetter = model.assign
 
-        $el.bind 'change', ->
-            $scope.$apply ->
-                modelSetter($scope, $el[0].files[0])
+#         $el.bind 'change', ->
+#             $scope.$apply ->
+#                 modelSetter($scope, $el[0].files[0])
 
-    return {link:link}
+#     return {link:link}
 
-module.directive('tgAvatarModel', ['$parse', TaigaAvatarModelDirective])
+# module.directive('tgAvatarModel', ['$parse', TaigaAvatarModelDirective])

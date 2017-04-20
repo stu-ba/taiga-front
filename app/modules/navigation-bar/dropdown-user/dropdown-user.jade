@@ -14,13 +14,18 @@ div.navbar-dropdown.dropdown-user
             a(
                 tg-nav="profile",
                 title="{{'PROJECT.NAVIGATION.VIEW_PROFILE_TITLE' | translate}}",
-                translate="PROJECT.NAVIGATION.VIEW_PROFILE")
+                translate="PROJECT.NAVIGATION.VIEW_PROFILE")        
         li
             a(
-                href="#",
-                tg-nav="user-settings-user-profile",
-                title="{{'PROJECT.NAVIGATION.EDIT_PROFILE_TITLE' | translate}}",
-                translate="PROJECT.NAVIGATION.EDIT_PROFILE")
+                href="{{vm.yapUrl}}",
+                title="Switch to Yap",
+                translate="Switch to Yap")
+        //- li
+        //-     a(
+        //-         href="#",
+        //-         tg-nav="user-settings-user-profile",
+        //-         title="{{'PROJECT.NAVIGATION.EDIT_PROFILE_TITLE' | translate}}",
+        //-         translate="PROJECT.NAVIGATION.EDIT_PROFILE")
 
         //- li.plugin(ng-repeat="plugin in vm.userSettingsPlugins")
         //-     a(
@@ -29,12 +34,12 @@ div.navbar-dropdown.dropdown-user
         //-         ng-class="{active: plugin.slug == currentPlugin.slug}"
         //-     )
         //-         span.title {{ plugin.name }}
-        li
-            a(
-                href="#",
-                tg-nav="user-settings-user-change-password",
-                title="{{'PROJECT.NAVIGATION.CHANGE_PASSWORD_TITLE' | translate}}",
-                translate="PROJECT.NAVIGATION.CHANGE_PASSWORD")
+        //- li
+        //-     a(
+        //-         href="#",
+        //-         tg-nav="user-settings-user-change-password",
+        //-         title="{{'PROJECT.NAVIGATION.CHANGE_PASSWORD_TITLE' | translate}}",
+        //-         translate="PROJECT.NAVIGATION.CHANGE_PASSWORD")
 
         //- li
         //-     a(

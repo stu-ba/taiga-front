@@ -128,51 +128,51 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     )
 
     # Project
-    $routeProvider.when("/project/new",
-        {
-            title: "PROJECT.CREATE.TITLE",
-            templateUrl: "projects/create/create-project.html",
-            loader: true,
-            controller: "CreateProjectCtrl",
-            controllerAs: "vm"
-        }
-    )
+    # $routeProvider.when("/project/new",
+    #     {
+    #         title: "PROJECT.CREATE.TITLE",
+    #         templateUrl: "projects/create/create-project.html",
+    #         loader: true,
+    #         controller: "CreateProjectCtrl",
+    #         controllerAs: "vm"
+    #     }
+    # )
 
     # Project - scrum
-    $routeProvider.when("/project/new/scrum",
-        {
-            title: "PROJECT.CREATE.TITLE",
-            template: "<tg-create-project-form type=\"scrum\"></tg-create-project-form>",
-            loader: true
-        }
-    )
+    # $routeProvider.when("/project/new/scrum",
+    #     {
+    #         title: "PROJECT.CREATE.TITLE",
+    #         template: "<tg-create-project-form type=\"scrum\"></tg-create-project-form>",
+    #         loader: true
+    #     }
+    # )
 
     # Project - kanban
-    $routeProvider.when("/project/new/kanban",
-        {
-            title: "PROJECT.CREATE.TITLE",
-            template: "<tg-create-project-form type=\"kanban\"></tg-create-project-form>",
-            loader: true
-        }
-    )
+    # $routeProvider.when("/project/new/kanban",
+    #     {
+    #         title: "PROJECT.CREATE.TITLE",
+    #         template: "<tg-create-project-form type=\"kanban\"></tg-create-project-form>",
+    #         loader: true
+    #     }
+    # )
 
     # Project - duplicate
-    $routeProvider.when("/project/new/duplicate",
-        {
-            title: "PROJECT.CREATE.TITLE",
-            template: "<tg-duplicate-project></tg-duplicate-project>",
-            loader: true
-        }
-    )
+    # $routeProvider.when("/project/new/duplicate",
+    #     {
+    #         title: "PROJECT.CREATE.TITLE",
+    #         template: "<tg-duplicate-project></tg-duplicate-project>",
+    #         loader: true
+    #     }
+    # )
 
     # Project - import
-    $routeProvider.when("/project/new/import/:platform?",
-        {
-            title: "PROJECT.CREATE.TITLE",
-            template: "<tg-import-project></tg-import-project>",
-            loader: true
-        }
-    )
+    # $routeProvider.when("/project/new/import/:platform?",
+    #     {
+    #         title: "PROJECT.CREATE.TITLE",
+    #         template: "<tg-import-project></tg-import-project>",
+    #         loader: true
+    #     }
+    # )
 
     # Project
     $routeProvider.when("/project/:pslug/",
@@ -433,21 +433,27 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     $routeProvider.when("/project/:pslug/admin/contrib/:plugin",
         {templateUrl: "contrib/main.html"})
 
-    # Transfer project
-    $routeProvider.when("/project/:pslug/transfer/:token",
-        {
-            templateUrl: "projects/transfer/transfer-page.html",
-            loader: true,
-            controller: "Project",
-            controllerAs: "vm"
-        }
-    )
+    # # Transfer project
+    # $routeProvider.when("/project/:pslug/transfer/:token",
+    #     {
+    #         templateUrl: "projects/transfer/transfer-page.html",
+    #         loader: true,
+    #         controller: "Project",
+    #         controllerAs: "vm"
+    #     }
+    # )
 
     # User settings
     $routeProvider.when("/user-settings/user-profile",
-        {templateUrl: "user/user-profile.html"})
-    $routeProvider.when("/user-settings/user-change-password",
-        {templateUrl: "user/user-change-password.html"})
+        {
+            # templateUrl: "user/user-profile.html",
+            template:"<tg-user-profile></tg-user-profile>",
+            loader: true,
+            controller:"UserSettingsController"
+        }
+    )
+    # $routeProvider.when("/user-settings/user-change-password",
+    #     {templateUrl: "user/user-change-password.html"})
     # $routeProvider.when("/user-settings/mail-notifications",
     #     {templateUrl: "user/mail-notifications.html"})
     # $routeProvider.when("/change-email/:email_token",
@@ -456,8 +462,8 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     #     {templateUrl: "user/cancel-account.html"})
 
     # UserSettings - Contrib Plugins
-    $routeProvider.when("/user-settings/contrib/:plugin",
-        {templateUrl: "contrib/user-settings.html"})
+    # $routeProvider.when("/user-settings/contrib/:plugin",
+    #     {templateUrl: "contrib/user-settings.html"})
 
     # User profile
     $routeProvider.when("/profile",
@@ -484,7 +490,8 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     # Auth
     $routeProvider.when("/login",
         {
-            templateUrl: "auth/login.html",
+            template: "<tg-login></tg-login>",
+            loader: true,
             title: "LOGIN.PAGE_TITLE",
             description: "LOGIN.PAGE_DESCRIPTION",
             disableHeader: true,
@@ -493,7 +500,8 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     )
     $routeProvider.when("/login/:token",
         {
-            templateUrl: "auth/login.html",
+            template: "<tg-login></tg-login>",
+            loader: true,
             title: "LOGIN.PAGE_TITLE",
             description: "LOGIN.PAGE_DESCRIPTION",
             disableHeader: true,
@@ -532,17 +540,17 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     #         disableHeader: true
     #     }
     # )
-    $routeProvider.when("/external-apps",
-        {
-            templateUrl: "external-apps/external-app.html",
-            title: "EXTERNAL_APP.PAGE_TITLE",
-            description: "EXTERNAL_APP.PAGE_DESCRIPTION",
-            controller: "ExternalApp",
-            controllerAs: "vm",
-            disableHeader: true,
-            mobileViewport: true
-        }
-    )
+    # $routeProvider.when("/external-apps",
+    #     {
+    #         templateUrl: "external-apps/external-app.html",
+    #         title: "EXTERNAL_APP.PAGE_TITLE",
+    #         description: "EXTERNAL_APP.PAGE_DESCRIPTION",
+    #         controller: "ExternalApp",
+    #         controllerAs: "vm",
+    #         disableHeader: true,
+    #         mobileViewport: true
+    #     }
+    # )
 
     # Errors/Exceptions
     $routeProvider.when("/blocked-project/:pslug/",

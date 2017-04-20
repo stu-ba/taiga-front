@@ -28,18 +28,18 @@ class ResourcesService extends taiga.Service
 
 urls = {
     # Auth
-    "auth": "/auth"
-    "auth-register": "/auth/register"
-    "invitations": "/invitations"
+    # "auth": "/auth"
+    # "auth-register": "/auth/register"
+    # "invitations": "/invitations"
 
     # User
     "users": "/users"
     "by_username": "/users/by_username"
-    "users-password-recovery": "/users/password_recovery"
-    "users-change-password-from-recovery": "/users/change_password_from_recovery"
-    "users-change-password": "/users/change_password"
-    "users-change-email": "/users/change_email"
-    "users-cancel-account": "/users/cancel"
+    # "users-password-recovery": "/users/password_recovery"
+    # "users-change-password-from-recovery": "/users/change_password_from_recovery"
+    # "users-change-password": "/users/change_password"
+    # "users-change-email": "/users/change_email"
+    # "users-cancel-account": "/users/cancel"
     "user-stats": "/users/%s/stats"
     "user-liked": "/users/%s/liked"
     "user-voted": "/users/%s/voted"

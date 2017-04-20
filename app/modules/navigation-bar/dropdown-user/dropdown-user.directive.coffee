@@ -23,14 +23,15 @@ DropdownUserDirective = (authService, configService, locationService,
     link = (scope, el, attrs, ctrl) ->
         scope.vm = {}
         scope.vm.supportUrl = configService.get("supportUrl")
+        scope.vm.yapUrl = configService.get("yapUrl")
 
         scope.vm.isFeedbackEnabled = configService.get("feedbackEnabled")
         taiga.defineImmutableProperty(scope.vm, "user", () -> authService.userData)
 
         scope.vm.logout = ->
-            authService.logout()
+            token = authService.logout()
             # locationService.url(navUrlsService.resolve("discover"))
-            $window.location.href = configService.get("logoutUrl");
+            $window.location.href = configService.get("yapUrl") + "/auth/logout?token=" + token;
             # locationService.search({})
 
         scope.vm.sendFeedback = ->
