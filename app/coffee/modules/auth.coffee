@@ -59,6 +59,7 @@ module.controller('LoginPage', LoginPage)
 #############################################################################
 
 class AuthService extends taiga.Service
+    # {}
     @.$inject = ["$rootScope",
                  "$tgStorage",
                  "$tgModel",
@@ -69,7 +70,7 @@ class AuthService extends taiga.Service
                  "$translate",
                  "tgCurrentUserService",
                  "tgThemeService"]
-    # {something}
+
     constructor: (@rootscope, @storage, @model, @rs, @http, @urls, @config, @translate, @currentUserService,
                   @themeService) ->
         super()
@@ -151,7 +152,6 @@ class AuthService extends taiga.Service
 
     ## Http interface
     refresh: () ->
-        console.log("refreshing")
         url = @urls.resolve("user-me")
 
         return @http.get(url).then (data, status) =>
@@ -257,7 +257,6 @@ module.service("$tgAuth", AuthService)
 
 LoginDirective = ($auth, $location, $config, $routeParams, $navUrls, $window) ->
     link = ($scope) ->
-        
         if $routeParams['next'] and $routeParams['next'] != $navUrls.resolve("login")
             $scope.nextUrl = decodeURIComponent($routeParams['next'])
         else
@@ -276,14 +275,13 @@ LoginDirective = ($auth, $location, $config, $routeParams, $navUrls, $window) ->
             $location.url($scope.nextUrl)
 
         if $routeParams.token?
-            console.log("do I get here")
             promise = $auth.loginByToken($routeParams.token)
             return promise.then(onSuccess, onError)
         else
-            $window.location.href = $config.get("yapUrl") + "/auth/loginn?taiga=" + $routeParams['next']
+            $window.location.href = $config.get("yapUrl") + "/auth/login/taiga?next=discover"
         
 
-    # return {link:link}
+    return {link:link}
 
 module.directive("tgLogin", ["$tgAuth", "$tgLocation", "$tgConfig", "$routeParams",
                              "$tgNavUrls", "$window", LoginDirective])

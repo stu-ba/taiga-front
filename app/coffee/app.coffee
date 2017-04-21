@@ -26,7 +26,8 @@
 @.taigaContribPlugins = @.taigaContribPlugins or window.taigaContribPlugins or []
 
 # Generic function for generate hash from a arbitrary length
-# collection of parameters.
+# collection of parameters. #{
+
 taiga.generateHash = (components=[]) ->
     components = _.map(components, (x) -> JSON.stringify(x))
     return hex_sha1(components.join(":"))
@@ -590,28 +591,26 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     # Add next param when user try to access to a secction need auth permissions.
     authHttpIntercept = ($q, $location, $config, $window, $navUrls, $lightboxService, errorHandlingService) ->
         httpResponseError = (response) ->
+            clear = ->
+                # HACK: to prevent circular dependencies with [$tgAuth]
+                $injector = angular.element("body").injector()
+                $injector.invoke(["$tgAuth", ($auth) =>
+                    $auth.removeToken()
+                    $auth.clear()
+                ])
             if response.status == 0 || (response.status == -1 && !response.config.cancelable)
                 $lightboxService.closeAll()
                 errorHandlingService.error()
             else if response.status == 401 and $location.url().indexOf('/login') == -1
                 nextUrl = $location.url()
-                search = $location.search()
+                clear()
+                $window.location.href = $config.get("yapUrl") + "/auth/login/taiga?next=" + nextUrl + "&status=401"
+            else if response.status == 403 and $location.url().indexOf('/login') == -1
+                clear()
+                $window.location.href = $config.get("yapUrl") + "/auth/login/taiga?next=discovery&status=403"
+            else
 
-                # if search.force_next
-                #     $location.url($navUrls.resolve("login"))
-                #         .search("force_next", search.force_next)
-                # else
-
-                $location.url($navUrls.resolve("login"))
-                    .search({
-                        "unauthorized": true
-                        "next": nextUrl
-                    })
-                return $config.get("yapUrl") + "/auth/loginn?taiga=" + nextUrl
-            else if response.status == 403
-                console.log("got 403 response")
             return $q.reject(response)
-
         return {
             responseError: httpResponseError
         }
@@ -661,7 +660,6 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
                     versionErrorMsg = $translate.instant("ERROR.VERSION_ERROR")
                     $confirm.notify("error", versionErrorMsg, null, 10000)
                 ])
-
             return $q.reject(response)
 
         return {responseError: httpResponseError}
@@ -770,7 +768,7 @@ i18nInit = (lang, $translate) ->
 
 init = ($log, $rootscope, $auth, $events, $analytics, $translate, $location, $navUrls, appMetaService,
         loaderService, navigationBarService, errorHandlingService, lightboxService) ->
-    $log.debug("Initialize application")
+    # $log.debug("Initialize application")
 
     $rootscope.$on '$translatePartialLoaderStructureChanged', () ->
         $translate.refresh()
