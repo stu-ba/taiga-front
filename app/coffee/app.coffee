@@ -588,33 +588,35 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
     $tgEventsProvider.setSessionId(taiga.sessionId)
 
     # Add next param when user try to access to a secction need auth permissions.
-    authHttpIntercept = ($q, $location, $navUrls, $lightboxService, errorHandlingService) ->
+    authHttpIntercept = ($q, $location, $config, $window, $navUrls, $lightboxService, errorHandlingService) ->
         httpResponseError = (response) ->
             if response.status == 0 || (response.status == -1 && !response.config.cancelable)
                 $lightboxService.closeAll()
-
                 errorHandlingService.error()
             else if response.status == 401 and $location.url().indexOf('/login') == -1
                 nextUrl = $location.url()
                 search = $location.search()
 
-                if search.force_next
-                    $location.url($navUrls.resolve("login"))
-                        .search("force_next", search.force_next)
-                else
-                    $location.url($navUrls.resolve("login"))
-                        .search({
-                            "unauthorized": true
-                            "next": nextUrl
-                        })
+                # if search.force_next
+                #     $location.url($navUrls.resolve("login"))
+                #         .search("force_next", search.force_next)
+                # else
 
+                $location.url($navUrls.resolve("login"))
+                    .search({
+                        "unauthorized": true
+                        "next": nextUrl
+                    })
+                return $config.get("yapUrl") + "/auth/loginn?taiga=" + nextUrl
+            else if response.status == 403
+                console.log("got 403 response")
             return $q.reject(response)
 
         return {
             responseError: httpResponseError
         }
 
-    $provide.factory("authHttpIntercept", ["$q", "$location", "$tgNavUrls", "lightboxService",
+    $provide.factory("authHttpIntercept", ["$q", "$location", "$tgConfig", "$window", "$tgNavUrls", "lightboxService",
                                            "tgErrorHandlingService", authHttpIntercept])
 
     $httpProvider.interceptors.push("authHttpIntercept")
@@ -808,7 +810,7 @@ init = ($log, $rootscope, $auth, $events, $analytics, $translate, $location, $na
         user = $auth.getUser()
 
     # Analytics
-    $analytics.initialize()
+    # $analytics.initialize()
 
     # Initialize error handling service when location change start
     $rootscope.$on '$locationChangeStart',  (event) ->
@@ -826,7 +828,6 @@ init = ($log, $rootscope, $auth, $events, $analytics, $translate, $location, $na
     un = $rootscope.$on '$routeChangeStart',  (event, next) ->
         if next.loader
             loaderService.start(true)
-
         un()
 
     $rootscope.$on '$routeChangeSuccess', (event, next) ->

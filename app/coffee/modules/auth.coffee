@@ -49,7 +49,6 @@ class LoginPage
                 if $routeParams['unauthorized']
                     $auth.clear()
                     $auth.removeToken()
-                    $window.location.href = $config.get("yapUrl") + '/unauthorized'
                 else
                     $location.url(url)
 
@@ -152,6 +151,7 @@ class AuthService extends taiga.Service
 
     ## Http interface
     refresh: () ->
+        console.log("refreshing")
         url = @urls.resolve("user-me")
 
         return @http.get(url).then (data, status) =>
@@ -188,14 +188,6 @@ class AuthService extends taiga.Service
             user = @model.make_model("users", data.data)
             @.setUser(user)
             return user
-
-    refreshToken: ->
-        url = @urls.resolve("user-me")
-        promise = @http.get(url).then (data, status) =>
-            user = @model.make_model("users", data.data)
-            console.log(user.auth_token)
-            # @.setToken(user.auth_token)
-            # @.setUser(user)
 
     logout: ->
         token = @.getToken()
@@ -264,18 +256,15 @@ module.service("$tgAuth", AuthService)
 
 
 LoginDirective = ($auth, $location, $config, $routeParams, $navUrls, $window) ->
-    console.log('here')
-    link = ($scope, $el, $attrs) ->
-
+    link = ($scope) ->
+        
         if $routeParams['next'] and $routeParams['next'] != $navUrls.resolve("login")
             $scope.nextUrl = decodeURIComponent($routeParams['next'])
         else
             $scope.nextUrl = $navUrls.resolve("home")
 
-
         onSuccess = (response) ->
             # $events.setupConnection()
-
             if $scope.nextUrl.indexOf('http') == 0
                 $window.location.href = $scope.nextUrl
             else
@@ -284,15 +273,17 @@ LoginDirective = ($auth, $location, $config, $routeParams, $navUrls, $window) ->
         onError = (response) ->
             $auth.removeToken()
             $auth.clear()
-            $window.location.href = $config.get("yapUrl") + "/auth/login?taiga=" + $routeParams['next']
-            
+            $location.url($scope.nextUrl)
+
         if $routeParams.token?
+            console.log("do I get here")
             promise = $auth.loginByToken($routeParams.token)
             return promise.then(onSuccess, onError)
         else
-            $window.location.href = $config.get("yapUrl") + "/auth/login?taiga=" + $routeParams['next']
+            $window.location.href = $config.get("yapUrl") + "/auth/loginn?taiga=" + $routeParams['next']
         
-    return {link:link}
+
+    # return {link:link}
 
 module.directive("tgLogin", ["$tgAuth", "$tgLocation", "$tgConfig", "$routeParams",
                              "$tgNavUrls", "$window", LoginDirective])
