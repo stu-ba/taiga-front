@@ -54,6 +54,23 @@ class LoginPage
 
 module.controller('LoginPage', LoginPage)
 
+class LogoutPage
+    @.$inject = [
+        'tgCurrentUserService',
+        '$location',
+        '$routeParams',
+        '$tgAuth',
+        '$tgConfig',
+        '$window'
+    ]
+    # {}
+    constructor: (currentUserService, $location, $routeParams, $auth, $config, $window) ->
+        $auth.clear()
+        $auth.removeToken()
+        $window.location.href = $config.get("yapUrl") + "/auth/login"
+
+module.controller('LogoutPage', LogoutPage)
+
 #############################################################################
 ## Authentication Service
 #############################################################################
