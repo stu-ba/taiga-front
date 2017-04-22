@@ -58,18 +58,18 @@ class JoyRideService extends taiga.Service
                   }
               ]
 
-              if !$('.project-list .create-project-button').is(':hidden')
-                  steps.push({
-                      element: '.project-list .create-project-button',
-                      position: 'bottom',
-                      joyride: {
-                          title: @translate.instant('JOYRIDE.DASHBOARD.STEP4.TITLE')
-                          text: [
-                              @translate.instant('JOYRIDE.DASHBOARD.STEP4.TEXT1'),
-                              @translate.instant('JOYRIDE.DASHBOARD.STEP4.TEXT2')
-                          ]
-                      }
-                  })
+              # if !$('.project-list .create-project-button').is(':hidden')
+              #     steps.push({
+              #         element: '.project-list .create-project-button',
+              #         position: 'bottom',
+              #         joyride: {
+              #             title: @translate.instant('JOYRIDE.DASHBOARD.STEP4.TITLE')
+              #             text: [
+              #                 @translate.instant('JOYRIDE.DASHBOARD.STEP4.TEXT1'),
+              #                 @translate.instant('JOYRIDE.DASHBOARD.STEP4.TEXT2')
+              #             ]
+              #         }
+              #     })
 
               return steps
 
