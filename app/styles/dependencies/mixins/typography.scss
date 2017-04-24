@@ -24,16 +24,16 @@
 
 @mixin font-type($type) {
     @if $type == title {
-        font-family: 'OpenSans-CondLight', Arial, Helvetica, sans-serif;
+        font-family: 'Source Sans Pro', 'Miriam Libre', sans-serif;
     } @else if $type == light {
-        font-family: 'OpenSans-Light', Arial, Helvetica, sans-serif;
+        font-family: 'Source Sans Pro', 'Miriam Libre', sans-serif;
     } @else if $type == text {
-        font-family: 'OpenSans-Regular', Arial, Helvetica, sans-serif;
+        font-family: 'Source Sans Pro', 'Miriam Libre', sans-serif;
     } @else if $type == bold {
-        font-family: 'OpenSans-Semibold', Arial, Helvetica, sans-serif;
+        font-family: 'Source Sans Pro', 'Miriam Libre', sans-serif;
     } @else if $type == mono {
         font-family: 'courier new', 'monospace';
     } @else {
-        font-family: 'OpenSans-Regular', Arial, Helvetica, sans-serif;
+        font-family: 'Source Sans Pro', 'Miriam Libre', sans-serif;
     }
 }
