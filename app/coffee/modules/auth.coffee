@@ -65,8 +65,9 @@ class LogoutPage
     ]
     # {}
     constructor: (currentUserService, $location, $routeParams, $auth, $config, $window) ->
-        $auth.clear()
-        $auth.removeToken()
+        $auth.logout()
+        # $auth.clear()
+        # $auth.removeToken()
         $window.location.href = $config.get("yapUrl") + "/auth/login"
 
 module.controller('LogoutPage', LogoutPage)
