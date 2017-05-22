@@ -25,7 +25,7 @@ nav.navbar(ng-if="vm.isEnabledHeader")
     div.nav-right(ng-if="!vm.isAuthenticated")
         a.login(
             ng-click="vm.login()"
-            href="{{vm.yapUrl}}/auth/login?taiga=discover",
+            href="{{vm.yapUrl}}/auth/login/taiga?next=discover",
             title="{{ 'LOGIN_COMMON.ACTION_SIGN_IN' | translate }}"
             translate="LOGIN_COMMON.ACTION_SIGN_IN"
         )
