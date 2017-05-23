@@ -118,7 +118,7 @@ class MembershipsController extends mixOf(taiga.Controller, taiga.PageMixin, tai
     # Actions
 
     addNewMembers:  ->
-        return @window.location.href = @config.get("yapUrl") + '/projects/' + @scope.project.name + "/edit"
+        return @window.location.href = @config.get("yapUrl") + '/projects/' + @scope.project.id + "/edit?taiga=true"
         # @lightboxFactory.create(
         #     'tg-lb-add-members',
         #     {
